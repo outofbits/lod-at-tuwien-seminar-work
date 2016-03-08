@@ -111,23 +111,45 @@ In consideration of the above mentioned obstacles of a possible Linked Open Data
 
 \subsection{Linked Universities}
 \label{related-work:linked-universities}
-... (Shared part)
+'Linked Universities' is "`\textit{an alliance of european universities engaged into exposing their public data as linked data}"'\footnote{\cite{url:linkeduniversities}} providing help and knowledge for other universities that wish to expose their public university resources as Linked Data. Addressing the problem of connecting data and developing new sites by inexperienced universities, the alliance provide information so they don't have to be re-learned. For this purpose the Linked Universities offering a portal as collaborative space with common vocabularies and practices for reusing, describing and sharing.
+
+Their goals are:(~\cite{url:linkeduniversities})
+
+\begin{itemize}
+\item "`Identify, support and develop common linked data vocabularies, usable accross universities for common concepts such as courses, qualifications, educational material, etc."'
+\item "`Describe reusable recipes, and share reusable tools, for exposing linked data in universities"'
+\item "`Support, through experience sharing and reuse, initiatives towards exposing university data as linked data"'
+\end{itemize}
+
+The members of this alliance are:(~\cite{url:linked-universities-members})
+\begin{itemize}
+	\item The Open University, UK
+	\item University of Münster, Germany
+	\item Aalto University, Finland
+	\item University of Southampton
+	\item Royal Institute of Technology (KTH) / MetaSolutions AB
+	\item Aristotle University of Thessaloniki, Greece
+	\item Ege University, Turkey
+	\item Charles University in Prague
+	\item Universitat Pompeu Fabra
+\end{itemize}
+
+\subsubsection{Example: The Open University and the LUCERO Project}
+LUCERO (Linking University Content for Education and Research Online) was a project from the Open University, funded for 1 year by the JISC Information Environment 2011 Programme under the call Deposit of research outputs and Exposing digital content for education and research. Aim of the project was to "` \textit{ scope, prototype, pilot and evaluate reusable, cost-effective solutions relying on linked data for exposing and connecting educational and research content}"'.\cite{url:lucero} The projects connected with other organizations through LinkedUniversities.org to gather common issues and practices. The outcome was the first university linked data platform, \url{http://data.open.ac.uk/}, with much impact on The Open University and the education community.
 
 \subsection{Austrian Open Data}
 \label{related-work:austrian-open-data}
-... (Shared part)
 
 
 \subsection{Linked Education}
 \label{related-work:austrian-open-data}
 
 
-\subsection{Resource list management}
-\label{related-work:rlm}
-
 \subsection{Earlier studies}
 \label{related-work:earlier-studies}
-... (Shared part)
+%Since the idea of Linked Open Data as well as the idea of applying it to the domain of universities is around for a while now (e.g. Linked Universities, 2011), 
+
+
 
 % --------------------------------------------------------------------------------------------
 %  Result: Case study
@@ -143,7 +165,7 @@ The first section describes the applied methodology (see \ref{lod-benefits-chall
 
 \subsection{Methodology}
 \label{lod-benefits-challenges:methodology}
-Since the idea of Linked Open Data as well as the idea of applying it to the domain of universities is around for a while now (e.g. Linked Universities, 2011), the first step was to discover Linked Open Data initiatives of universities that have already been started and case studies that have already been conducted. A brief description of the results can be seen in \ref{related-work}. The discovered case studies and initiatives were analysed and two common use cases, which may be the most interesting ones from the point of a student, were extracted; a map of places of interest (see \ref{lod-benefits-challenges:explored-needs-usecases:map}) and a resource list management application combined with course information (see \ref{lod-benefits-challenges:explored-needs-usecases:rlm}). 
+Since the idea of Linked Open Data as well as the idea of applying it to the domain of universities is around for a while now (e.g. Linked Universities, 2011), the first step was to discover Linked Open Data initiatives of universities that have already been started and case studies that have already been conducted. A brief description of the results can be seen in \ref{related-work}. The discovered case studies and initiatives were analysed and two common use cases, which may be the most interesting ones from the point of a student, were extracted; a map of places of interest (see \ref{lod-benefits-challenges:explored-needs-usecases:map}) and a resource list management application (see \ref{lod-benefits-challenges:explored-needs-usecases:rlm}). 
 
 Afterwards the case study was designed and semi-structured interviews were planned to answer the research questions of the case study. Both extracted use cases were part of the interviews; on the one hand to give the interviewees an idea what Linked Open Data can be used for and on the other hand to evaluate the acceptance and doubts regarding these use cases. Potential interviewees were collected by suggestions of prior interviewees and persons that are quite familiar with the domain of the university. In summary, five interviews were conducted and at the time of the conduction all interviewees were \textit{students} or persons affiliated with \textit{student affairs}. A more detailed description of the interviewees can be found in \ref{lod-benefits-challenges:interviewees}. The design of the interview is further discussed in the following section.
 
@@ -221,7 +243,7 @@ The University of Southampton has developed a map application\footnote{\url{http
 The Vienna University of Technology has already published the location of the lecture rooms, seminar rooms and plans of the internal structure of the buildings in an open way, but not in a format, where the content can be interpreted by machines. Additional to this, there are other sources with valuable information for such a map. TUbarrierfrei manages knowledge about the accessibility of buildings and certain rooms, Fachschaft (student representatives) provides information about learning rooms and ZID about computer rooms. The project called LinkedGeoData\footnote{\url{http://linkedgeodata.org/About}} provides geographical information (e.g. cafés, restaurants and super markets that are nearby) as Linked Open Data. At the time of writing, these datasets cannot be interlinked and presented to the user in a map application.
 
 \paragraph{Results:}
-All interviewees responded positively to this proposed application use case and would use it. Interviewee \textit{\textbf{E}} would like to have an overview of all scheduled events(exams, lectures, exercises) that take place in a certain room at a particular date. This idea corresponds to the demand of all other interviewees to find free rooms for particular tasks. \textit{\textbf{A}} and \textit{\textbf{D}} would like to have a service, where all free rooms that can potentially be used for meet-ups and learning like free lecture rooms are indicated on such a map application. \textit{\textbf{B}} and \textit{\textbf{C}} would like to have a service to simplify the finding of free seminar rooms and rooms in general that can be used by tutors to mentor their students. Regarding the provision of information about the accessibility in such a map, \textit{\textbf{B}} mentioned that real-time data about disfunctional elevators may be quite useful. \textit{\textbf{C}} would also like to have an overview of the location of institutes. This idea corresponds to the science area application of the Oxford University\footnote{\url{https://data.ox.ac.uk/explore/science-area/}}. \textit{\textbf{E}} wanted to make the note that such a map application shall also work offline.
+All interviewees responded positively to this proposed application use case and would use such an application. Interviewee \textit{\textbf{E}} would like to have an overview of all scheduled events(exams, lectures, exercises) that take place in a certain room at a particular date. This idea corresponds to the demand of all other interviewees to find free rooms for particular tasks. \textit{\textbf{A}} and \textit{\textbf{D}} would like to have a service, where all free rooms that can potentially be used for meet-ups and learning like free lecture rooms are indicated on such a map. \textit{\textbf{B}} and \textit{\textbf{C}} would like to have a service to simplify the finding of free seminar rooms and rooms in general that can be used by tutors to mentor their students. Regarding the provision of information about the accessibility in such a map, \textit{\textbf{B}} mentioned that real-time data about disfunctional elevators may be quite useful. \textit{\textbf{C}} would also like to have an overview of the location of institutes. This idea corresponds to the science area application of the Oxford University\footnote{\url{https://data.ox.ac.uk/explore/science-area/}}. \textit{\textbf{E}} wanted to make the note that such a map application shall also work offline.
 
 \paragraph{Challenges:}
 The information required for such an application is separated over different data sources including diverging data owners, but this phenomena is not unique for this use case and challenges as well as an approach to overcome this is further discussed in \ref{technical-architecture-challenges}.

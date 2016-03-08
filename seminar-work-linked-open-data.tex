@@ -1,0 +1,552 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{custompaperandpencil}
+
+\setlength{\parindent}{14.0pt} 
+
+\begin{document}
+
+% ----------------------------------------------------------------------------------------------
+%   The title page of the article
+% ----------------------------------------------------------------------------------------------
+\pagenumbering{gobble}
+\title{Linked~Open~Data at the Vienna~University~of~Technology} 
+\author{Kevin Haller\\
+	\texttt{kevin.haller@student.tuwien.ac.at}} 
+\date{March 2016} 
+
+\maketitle
+
+\begin{abstract}
+The abstract goes here.
+\end{abstract}
+
+\smallskip
+\noindent \textbf{Keywords.} Linked Open Data, University, Case Study
+
+\newpage
+
+% ---------------------------------------------------------------------------------------------
+%  Table of content
+% ---------------------------------------------------------------------------------------------
+
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+% ---------------------------------------------------------------------------------------------
+%  Introduction
+% ---------------------------------------------------------------------------------------------
+
+\section{Introduction}
+\label{introduction}
+While the pressure on governments and public organizations to release \textit{Open~Data} has significantly grown with the spread of information systems, there has been also a need for \textit{linking} these data from various sources to understand the information as a whole.
+
+Open Data includes non-privacy-restricted and non-confidential data. Therefore any restrictions in distribution are prohibited and data is funded only by public money.~\cite{article:janssen2012benefits} The application domain for Open Data providers is not restricted by its nature in any way and ranges from traffic, weather, statictics to budgeting in the public sector. Just the publication of Open Data seems not enough but in addition the implementation of a feedback loop result in \textit{Open Government}. This has the advantage of a constant adaption to the citizen's needs instead of just visualizing former closed data. 
+
+Despite its wide adoption of Open Data it does restrict the published Data format in any way, thus complicating the integration of heterogeneous data sets. The World Wide Web has proven great success spreading knowledge of various data sources all over the world. The building block of the Web are documents and links connecting them to form a global information space. This can be seen as the key success factor in its nearly unconstrained growth~\cite{report:jacobs-i-2004--a}. 
+Following these principles of publishing and connecting data on the Web is known as \textit{Linked~Data}. More technically, it refers to machine-readable data which is linked to external data sets and can in turn be linked from other data sets. 
+
+\cite{artivle:bernerslee-t-2006-1} developed a five star rating scheme for classifying \textit{Linked Open Data}, which combines Linked Data and Open Data. The scheme ranges from one star describing Open Data only to five stars describing Open Data in a machine-readable format using open standards with links to other data sets.
+
+Although Linked~Open~Data offer universities new opportunities for providing unprecedented insight into its core activities and ease application development, a major \textbf{problem} is that \textbf{Linked~Open~Data has not been widely adopted by universities yet}. Even tough there are a few examples~\cite{url:linked-universities-members} of publishing university related data as Linked~Open~Data, there has been little knowledge of using Linked~Open~Data for publishing university related information. 
+
+The remainder of this section states the addressed research question of this paper, describes the contributions in the course of investigating the research questions and gives an overview of the structure of this paper.
+
+
+\subsection{Research Questions}
+\label{introduction:research-questions}
+The fundamental research questions underlying this paper is:
+\begin{displayquote}
+\textit{How can Linked~Open~Data help to improve processes in university context and how can it be successfully applied?}
+\end{displayquote}
+More concrete this paper concentrates on the following specific research questions:
+\paragraph{Q1: What are best practices regarding the applicability of Linked Open Data in university settings?}
+As of now, there are no established best practices for the use of Linked Open Data due to its little adoption in university contexts. For this very reason it is crucial to identify strengths and limitation from previous experiences~\cite{url:linked-universities-members} of using Linked~Open~Data as core technology. 
+\paragraph{Q2: What are major benefits and barriers for each stakeholder and what are useful use cases?}
+We identified three different stakeholders in university context \textit{Students}, \textit{Researchers} and \textit{Administration staff}. Since the success of any new technology highly depends on the acceptance of the stakeholders, the needs of each of the target groups needs to be examined. Furthermore, use cases are important to showcase profits and shortcomings to a non-technical audience. 
+\paragraph{Q3: What are major challenges for the implementation of a Linked Open Data~solution?}
+As the implementation of a Linked Open Data solution is a time consuming task, the knowledge of probable challenges from the technical perspective as well as from the management perspective is a key factor for the successful adoption. 
+\paragraph{Q4: How would a prototypical implementation of Linked~Open~Data look like?}
+Among the various existing data sets available it needs to be investigated if a (semi-) automatic transformation is feasible or is the manual data provision enough. In addition, from an implementers perspective of view, critical factors regarding the storage and retrieval of Linked~Open~Data need to be identified. 
+
+\subsection{Methodology}
+Finding an answer for the research questions above has lead to the following three methodologies:
+\paragraph{A coordinated set of semi-structured interviews}
+To answer research questions~(RQ) two to four, we interviewed a selected set of stakeholders representing \textit{Students}, \textit{Researchers} and \textit{Administration staff} respectively. Semi-structured interviews were selected as the means of data collection because they are well suited for exploring the impressions and interests of the interviewees as in a discussion while still following a defined structure. 
+\paragraph{Litrature Review}
+Undertaking a litrature review to justify scientific contributions and making sound conclusions is an established practice in any scientific community. Since our scientific work targeted in particular to the Semantic Web community, we made some pre-assumptions of a basic understanding of the technologies and concepts regarding Linked Data. More specifically, the concept of an ontology and example knowledge descriptions languages describing these will not be covered in this paper. 
+\paragraph{Conceptual System Design}
+The development of applications based on Linked Open Data requires a methodology which describes a common understanding of the overall system infrastructure. Therefore we designed a conceptual model of a prototypical implementation of a Linked Open Data solution. 
+
+\subsection{Contributions}
+The work in this paper mainly contributes to different aspects which need to be considered when designing and implementing a Linked Open Data application.
+More precisely, our contributions can be categorized into the following four areas:
+\paragraph{1. Identifying best practices for Linked Open Data in university context.}
+Due to the crowing complexity and the large amount of data information systems need to process, there has been the need to efficiently handle Linked Data as well. We gave a brief overview of the already published research work regarding Linked Open Data in university context. In particular, we compared the profits and shortcomings in existing Linked Open Data solutions. 
+\paragraph{2. Finding benefits/barriers with additional use cases for stakeholders.}
+As with every software project the very first phase of the Software Development Lifecycle~(SDLC) is the \textit{Evaluation of the Requirements}. As a Linked Open Data solution has additional requirements to the structure of the data and due to its open nature, we investigated if the overhead compared to an established technology (e.g. a database based solution) is worth the effort. A set of selected participants from the areas Research, Student~Affairs and Administration are interviewed at the University of Technology in Vienna and their benefits/barriers are compared. Additionally, we proposed several use cases emphasising their point of view. 
+\paragraph{3. Discovering possible obstacles for implementers of a Linked Open Data Solution.}
+As the application domain for a Linked Data is limited to the university context, our work includes a defined set of Linked Open Data applications which were merged together from the conducted interviews. That use cases showcased probable shortcomings which might arise before, during or after the implementation.
+\paragraph{4. Sketching a prototypical implementation of a Linked Open Data solution.}
+In consideration of the above mentioned obstacles of a possible Linked Open Data solution, we gave an outline of a prototypical implementation. It begins by covering the whole process of data provision and ends by applications made for end users. 
+\subsection{Structure of this Paper}
+\%\%\%\%tbd\%\%\%\%
+
+
+% --------------------------------------------------------------------------------------------
+%  Related work
+% --------------------------------------------------------------------------------------------
+
+\section{Related work}
+\label{related-work}
+
+\subsection{Linked Universities}
+\label{related-work:linked-universities}
+... (Shared part)
+
+\subsection{Austrian Open Data}
+\label{related-work:austrian-open-data}
+... (Shared part)
+
+
+\subsection{Linked Education}
+\label{related-work:austrian-open-data}
+
+
+\subsection{Resource list management}
+\label{related-work:rlm}
+
+\subsection{Earlier studies}
+\label{related-work:earlier-studies}
+... (Shared part)
+
+% --------------------------------------------------------------------------------------------
+%  Result: Case study
+% --------------------------------------------------------------------------------------------
+
+\section{Benefits and challenges of using Linked Open Data at universities}
+\label{lod-benefits-challenges}
+As mentioned in the introduction, we identified \textit{students}, \textit{researchers} and \textit{administration employees} as import stakeholders at a university. This chapter describes the methodology and results of the conducted case study, where \textit{students} and persons affiliated with \textit{student affairs} at the Vienna University of Technology were the case. The essential question of the case study was RQ2; what are the major benefits and challenges for students if certain university resources are published as Linked Open Data and which needful use cases can result out of this from the perspective of the students. RQ3 played a minor role in the case study, because \textit{students} are in general on the consuming side of information technology at a university. However, there are \textit{students} that are running information systems (e.g. wikis or internet forums), which collect a not insignificant amount of knowledge, which is why this research question was also of interest. The case study was conducted at the Vienna University of Technology, where teaching and research is focused on engineering and natural science.  It has several faculties including Computer Sciences and Electrical Engineering \& Information Technology, which is exactly why the exploration of the willingness of students to develop applications based on LOD was also a goal. \textbf{5} participants from student representatives, teaching \& administration personnel to ordinary students participated in the case study.
+
+A case study concerning \textit{researchers} was conducted by Lukas Baronyai $<link>$ and another one concerning \textit{administration employees} by Stefan Gamerith $<link>$. 
+
+The first section describes the applied methodology (see \ref{lod-benefits-challenges:methodology}). The results are split in three sections; the first one describes the background of the interviewees (see \ref{lod-benefits-challenges:interviewees}). The second one describes the proposed use cases and the evaluated acceptance of them as well as examined additional use cases and requested datasets (see \ref{lod-benefits-challenges:explored-needs-usecases}). The third section shows the result of the evaluated willingness of the interviewees to develop applications based on Linked Open Data provided by the university (see \ref{lod-benefits-challenges:playground}).
+
+\subsection{Methodology}
+\label{lod-benefits-challenges:methodology}
+Since the idea of Linked Open Data as well as the idea of applying it to the domain of universities is around for a while now (e.g. Linked Universities, 2011), the first step was to discover Linked Open Data initiatives of universities that have already been started and case studies that have already been conducted. A brief description of the results can be seen in \ref{related-work}. The discovered case studies and initiatives were analysed and two common use cases, which may be the most interesting ones from the point of a student, were extracted; a map of places of interest (see \ref{lod-benefits-challenges:explored-needs-usecases:map}) and a resource list management application combined with course information (see \ref{lod-benefits-challenges:explored-needs-usecases:rlm}). 
+
+Afterwards the case study was designed and semi-structured interviews were planned to answer the research questions of the case study. Both extracted use cases were part of the interviews; on the one hand to give the interviewees an idea what Linked Open Data can be used for and on the other hand to evaluate the acceptance and doubts regarding these use cases. Potential interviewees were collected by suggestions of prior interviewees and persons that are quite familiar with the domain of the university. In summary, five interviews were conducted and at the time of the conduction all interviewees were \textit{students} or persons affiliated with \textit{student affairs}. A more detailed description of the interviewees can be found in \ref{lod-benefits-challenges:interviewees}. The design of the interview is further discussed in the following section.
+
+\subsubsection{Interview design}
+\label{lod-benefits-challenges:interview-design}
+In order to answer the given research questions of the case study \textbf{five} semi-structured interviews were conducted. In a semi-structured interview the questions are planned in advance, but they are not asked in the same order as they are listed. A semi-structured interview let researchers have their freedom to decide, which question to ask next in dependence on the development of the conversation. Additionally, semi-structured interviews allow for improvisation and exploration of the
+studied objects \cite{runeson_guidelines_2008}. This is exactly why a semi-structured approach was used, because in this case study the participant of the interview shall have the freedom to express his/her ideas without being constrained by a fixed order of planned questions. In order to have a guideline for the interviews, a questionnaire was created, which can be seen in the appendix (see \ref{questionaire}). The questionnaire is composed of five parts:
+\begin{enumerate}
+	\item An introduction to the research team.
+	\item General questions about the background of the interviewee including for example the level of expertise in the field of Linked Open Data.
+	\item An introduction to Linked Open Data by using a simple example.   
+	\item Proposal of both extracted use cases and open question about the acceptance and opinion regarding these use cases.
+	\item Open questions to gather ideas about potential use cases and datasets for which a more open access is requested. In addition, open questions about the willingness to develop applications based on LOD provided by the university.
+\end{enumerate}
+
+The list represents in which order the parts of the questionnaire were addressed during the interview, but as mentioned earlier due to the nature of semi-structured interviews there is no need for keeping this order. First, the research team was introduced to the interviewee as well as the objective. Afterwards, the moderator asked the interviewee about their background. Due to the question about the level of expertise in the field of Linked Open Data, the moderator was able to decide whether an introduction to Linked Open Data is required or not. The maybe skipped introduction was followed by the last two parts, where the moderator asked open questions concerning the research goals of the case study. 
+
+The interviews were conducted in teams of two researchers. One researcher, who was the moderator and one, who had the task to collect data by writing valuable contributions onto a logging sheet. This approach was chosen, because the attempt to moderate a interview and to simultaneously log it may lead to the lose of valuable contributions or a frequently interrupted conversation. An alternative is the recording of the conversation, but in this case the single researcher has to spend more time (in worst case two times more) to extract important contributions from the conversation and the interviewee may not be in favour of it. On the other hand no second researcher, who is familiar with the study, is required and the recording can be used for later analysis. Nevertheless the first approach was used.
+
+\subsection{Background of interviewees}
+\label{lod-benefits-challenges:interviewees}
+At the beginning of the interviews, the five participants had to answer some questions about their background. They had to describe their daily work tasks and responsibilities at the university. Furthermore, the interviewees had to estimate their level of expertise in the field of Information \& Communication Technologies and in the field of Linked (Open) Data. The results are visualized in the following table. \\
+
+\begin{tabular}{ l | c | c | c |}
+ 	\multicolumn{2}{c|}{} & \multicolumn{2}{c|}{Level of expertise} \\
+ 	\hline
+	ID & Assignment & ICT (1-5) & LOD (1-5) \\
+	\hline
+	A  & student representative & 3 & 1 \\
+	B & teaching and administration & 5 & 2 \\
+	C & teaching and administration & 5 & 1 \\
+	D & student & 4 & 3 \\
+	E & student & 4 & 3 \\
+	\hline
+\end{tabular}
+
+\paragraph*{Scala for level of expertise in the field of ICT}
+\begin{description}
+	\item[1] ... Fundamental
+	\item[2] ... Novice
+	\item[3] ... Intermediate
+	\item[4] ... Advanced
+	\item[5] ... Expert
+\end{description}
+
+\paragraph*{Scala for level of expertise in the field of Linked (Open) Data}
+\begin{description}
+	\item[1] ... I never heard of Linked Open Data.
+	\item[2] ... I heard of Linked Open Data, but never used it.
+	\item[3] ... I used Linked Open Data in a not intense way. E.g. as part of a workshop or home project.
+	\item[4] ... I used Linked Open Data in a practical project.
+	\item[5] ... I used Linked Open Data in several practical projects and consider myself an expert in Linked Open Data.
+\end{description}
+
+
+\subsection{Use cases and needs}
+\label{lod-benefits-challenges:explored-needs-usecases}
+
+
+\subsubsection{Map of places of interest}
+\label{lod-benefits-challenges:explored-needs-usecases:map}
+
+\begin{figure}[t]
+\label{fig:ush-map-app}
+\centering \includegraphics*[width=1.0\columnwidth]{images/maps-app/southampton_map_app.png}
+\caption{Map application of the University of Southampton}
+\end{figure}
+
+\paragraph{Description:}
+The facilities of the Vienna University of Technology are spread over a wide area (mostly in the fourth district of Vienna) and especially, when you are new to the campus regardless of whether you are a student, an employee or a visitor, a map application that
+shows the location of places of interest and make it possible to search them may save some time and reduce annoyance. Not only to find them in the first place, but also for finding free learning or computer rooms as well as for the social life beyond the university; finding cafés or restaurants that are nearby.
+
+The University of Southampton has developed a map application\footnote{\url{http://maps.southampton.ac.uk/}} based on their Linked Open Data initiative (see figure \ref{fig:ush-map-app}). This map application provides a detailed view of the location of the buildings and the internal structure with the ability to switch floors. The application make it possible for the user to get more detailed information like where single rooms or printers are located. Especially, the computer rooms are highlighted and the opening hours as well as an estimated occupancy rate are displayed per request. This sort of application use case of Linked Open Data seem to be very popular and is also implemented among others at the University of Münster\footnote{\url{http://app.uni-muenster.de/Karte/}} and Oxford University\footnote{\url{https://data.ox.ac.uk/explore/science-area/}}.
+
+The Vienna University of Technology has already published the location of the lecture rooms, seminar rooms and plans of the internal structure of the buildings in an open way, but not in a format, where the content can be interpreted by machines. Additional to this, there are other sources with valuable information for such a map. TUbarrierfrei manages knowledge about the accessibility of buildings and certain rooms, Fachschaft (student representatives) provides information about learning rooms and ZID about computer rooms. The project called LinkedGeoData\footnote{\url{http://linkedgeodata.org/About}} provides geographical information (e.g. cafés, restaurants and super markets that are nearby) as Linked Open Data. At the time of writing, these datasets cannot be interlinked and presented to the user in a map application.
+
+\paragraph{Results:}
+All interviewees responded positively to this proposed application use case and would use it. Interviewee \textit{\textbf{E}} would like to have an overview of all scheduled events(exams, lectures, exercises) that take place in a certain room at a particular date. This idea corresponds to the demand of all other interviewees to find free rooms for particular tasks. \textit{\textbf{A}} and \textit{\textbf{D}} would like to have a service, where all free rooms that can potentially be used for meet-ups and learning like free lecture rooms are indicated on such a map application. \textit{\textbf{B}} and \textit{\textbf{C}} would like to have a service to simplify the finding of free seminar rooms and rooms in general that can be used by tutors to mentor their students. Regarding the provision of information about the accessibility in such a map, \textit{\textbf{B}} mentioned that real-time data about disfunctional elevators may be quite useful. \textit{\textbf{C}} would also like to have an overview of the location of institutes. This idea corresponds to the science area application of the Oxford University\footnote{\url{https://data.ox.ac.uk/explore/science-area/}}. \textit{\textbf{E}} wanted to make the note that such a map application shall also work offline.
+
+\paragraph{Challenges:}
+The information required for such an application is separated over different data sources including diverging data owners, but this phenomena is not unique for this use case and challenges as well as an approach to overcome this is further discussed in \ref{technical-architecture-challenges}.
+
+\subsubsection{Resource management list}
+\label{lod-benefits-challenges:explored-needs-usecases:rlm}
+
+\paragraph{Description:}
+The Vienna University of Technology consists of eight faculties, which cover the classical areas of natural and technical science and overall, there are 52 different institutes; each of them with further branches and a range of courses. TISS is the central source for actual course information over the WWW, but some of these courses have their own information system (mostly simple websites or e-learning platforms), where special details of the course are published like for example the slides of the lectures, the bibliography of learning resources, dates of events (lectures, exams, ...) or exercise sheets.
+
+\begin{figure}[t]
+\centering \includegraphics*[width=1.0\columnwidth]{images/rlm-tools/aber-explore-1.png}
+\caption{Reading list for 'Exploring the International 1', Aberystwyth University}
+\label{fig:rlm-aber-1}
+\end{figure}
+
+When a student wants to get an overview of the suggested resources (books, journal articles, web pages and other forms of media) for attainig the learning goals of the course, the student may have to scan web pages and lecture slides for collecting them. Furthermore the student has to search for a supplier for each resource that is not freely accessible over the WWW, like most books and journals. Resource lists management tools try to simplify this procedure. \begin{quote}On the subject of the user experience for the student, RLM tools have often been no more than electronic replicas of the paper based list. There has traditionally been little attempt to allow students to annotate items with regard to their intended use, or interact with content. Students could not feedback whether they have found items useful in attaining their learning goals, or add personal study notes. There has been no facility to allow the students themselves to form new collections or bibliographies of resources for a particular essay or group exercise.\cite{clarke_resource_2009}\end{quote} Resource lists, that are simply exposed on web pages or in lecture slides, are not a very convenient approach from the students perspective. Resource lists management tools can take Linked Open Data principles into consideration and link the resources to the suppliers (and especially to the local academic library, if possible). The students can give feedback to a resource list of the lecturer and create their own resource lists, which can on their part be rated by other students. Students can also comment respectively mark helpful sections of resources.
+
+\paragraph{Results:}
+\textit{\textbf{B}} and \textit{\textbf{C}} were quite sceptical about this use case and their concerns are further discussed in the challenge section. \textit{\textbf{A}}, \textit{\textbf{D}} and \textit{\textbf{E}} would like to have such an application.\textit{\textbf{E}} said, ''\textit{Yes. It is a pain to stay up-to-date on organizational lecture information, which is often distributed over TISS\footnote{central information system of the Vienna University of Technology}, TUWEL\footnote{e-learning platform, customization of moodle}, the institutute homepage, etc.} ...''. This comment goes beyond this use case and concerns organizational information in general. Such a resource list management tool could be part of a broader set of services that simplify the organizational burden of students. \textit{\textbf{D}} mentioned that (s)he was multiple times on the edge to send explored useful resources that helped him/her a lot to attain the learning goals of the course per email to the lecturer. \textit{\textbf{D}} also suggested a ranking like on stackoverflow\footnote{\url{http://stackoverflow.com/}}, where contributions can be liked or disliked and in consequence helpful contributions are usually at the top. \textit{\textbf{E}} suggested to make it possible to link to useful contributions in the Informatikforum\footnote{internet forum for students of informatics} and experience reports on VOWI\footnote{a wiki, where students share experience and knowledge about courses}.
+
+\paragraph{Challenges:}
+\textit{\textbf{B}} and \textit{\textbf{C}} mentioned that the additional administrative burden for course teams like keeping the list up-to-date may diminish the willingness of using such an application.\textit{\textbf{B}} pointed out, that the use of the e-learning platform TUWEL is also not accepted throughout all course teams. While the contribution of the course team would be quite valuable, the resource list management tool could allow the students to create resource lists completely on their own. However, this approach may cause situations where solutions to exercises are contributed as well as spam, if the course team is not into it. Same as with the map application use case, the information required for such an application is separated over different data sources including diverging data owners. Challenges as well as an approach to overcome this is further discussed in \ref{technical-architecture-challenges}.
+
+\subsubsection{Explored use cases}
+\label{lod-benefits-challenges:explored-needs-usecases:explored}
+...
+
+\subsection{Playground}
+\label{lod-benefits-challenges:playground}
+The interviewees were also asked about their willingness to develop applications based on Linked Open Data provided by the university. 
+
+\textit{\textbf{A}} is willing to develop applications based on Linked Open Data, if a comprehensive documentation is provided for application developers and would in this case see a playground for other students of informatics. \textit{\textbf{A}} is a student representative and manages some valuable information for the students. \textit{\textbf{A}} pointed out that a provision of some of this information as Linked Open Data may cause a disproportionate amount of work and maintenance burden, when questioned about it, but is open to it.
+
+Student \textit{\textbf{D}} would be willed to develop applications based on provided Linked Open Data, only if some incentives like rewards for innovative applications were provided, but could imagine that some of his/her student colleagues may develop small applications for their own joy. Student \textit{\textbf{E}} would be willed to, if (s)he has a creative idea. 
+
+\textit{\textbf{B}} saw his/her personal interest in other areas, but could imagine that students of courses that lecture software engineering, where a practical project has to be carried out (e.g. Advanced Software Engineering at the Vienna University of Technology), may design an application based on Linked Open Data provided by the university. \textit{\textbf{C}} was principally interested in writing such an application.
+
+Overall, the interviewees were more or less cautious regarding this question.
+
+
+
+% --------------------------------------------------------------------------------------------
+%  Result: Technical architecture and challenges
+% --------------------------------------------------------------------------------------------
+
+\section{Technical architecture and challenges}
+\label{technical-architecture-challenges}
+
+Today's universities usually have to manage a significant amount of information and additional one is produced day by day. Due to the complexity of the domain of a university, there may be multiple services that handle a particular part of the domain. For a university that commits both to science and science education the domain includes areas like the management of an academic library or the provision of an education respectively research platform. Furthermore, larger universities tend to spread their services across several departments to serve their stakeholders and satisfy their specific requirements. This phenomena of spreading services can not only be observed at the Vienna University of Technology, but also at the Open University\footnote{\url{http://www.open.ac.uk/}} (Fouad Zablith, Mathieu d’Aquin, Stuart Brown and Liam Green-Hughes, 2011)\cite{zablith_consuming_2011}.
+
+It is likely for such an environment to result in independent services, which encapsulate their collected information into disconnected data sources with different formats and/or data owners. As a result of this, the information that has been collected by all these multiple services can not easily be interlinked, which blocks the full potential. A simple example for such two isolated services at the Vienna University of Technology are the e-learning platform called TUWEL\footnote{\url{https://tuwel.tuwien.ac.at/}}, which is a customization of moodle\footnote{\url{https://moodle.org/}}, and the central information system called TISS. Both of these services provide course information and material, but they are intended for different purposes. TISS focuses mainly on administrative functionality like course or exam registrations, whereas TUWEL focuses on a broader interaction between teacher and student. Providing for example an additional functionality, which synchronizes important dates from deadlines of exercises to the time of lectures and exams with your own calendar might be quite useful, but the development is costly, due to the fact that the information is separated over this different isolated data sources and at that point not freely accessible. 
+
+\ref{technical-architecture-challenges:proposal} proposes a technical architecture using a Linked Data approach to overcome this environment of data silos and to support the evolvement of a university-wide data space, which can be queried. In fact this university-wide data space can be interlinked with the LOD of other entities like DBPedia or LinkedGeoData to enrich it. \ref{technical-architecture-challenges:lod-effort} describes the stakeholder driven evolvement of a Linked Open Data effort at a university. The last section discusses the challenges (see \ref{technical-architecture-challenges:challenges}).
+
+\subsection{Linked Open Data effort at universities}
+\label{technical-architecture-challenges:lod-effort}
+
+\begin{figure}[t]
+\centering \includegraphics*[width=1.0\columnwidth]{images/technical-architecture/lod_at_tuwien_idef0.png}
+\caption{IDEF0: The evolvement of a LOD effort at a university}
+\label{fig:tac-idef0}
+\end{figure}
+
+This section discusses our model (see figure \ref{fig:tac-idef0}) for describing the evolvement of a Linked Open Data effort at a university driven by the stakeholders. The model visualizes the issue on an organizational level in IDEF0 notation.
+
+\paragraph{The evolvement of a requirement for a LOD application}
+\label{technical-architecture-challenges:lod-effort:evolvement-app-requirement}
+is driven by the needs of the \textit{stakeholders} and the current information environment at a university and around this university. The requirement for a Linked Data application is rising, when the needs of a stakeholder are not sufficiently met by the information environment. Such a rising demand for a LOD application must not only be caused by an unsatisfactory situation at the university, but also by external developments like Linked Science, Open Education or the Semantic Web in general. The evolvement of such a requirement for a LOD application leads to user requirements, which shall be met by the application, and the demand for providing university resources, which will be required for such an application, as LOD.
+
+\begin{itemize}
+\item \textit{Stakeholders}~\\
+As stated in the introduction (see \ref{introduction}), we identified students, administration employees and researchers as important \textit{stakeholders} for a Linked Open Data effort at a university.
+
+\end{itemize}
+
+\paragraph{The provision of a university resource as LOD}
+\label{technical-architecture-challenges:lod-effort:provision-resources}
+is controlled by the demand on publishing the known datasets of this resource as LOD and the given costs for the process. If the demand is low and the costs are high, the provision is pointless from an economic point of view. This process includes the \textit{transformation} of the datasets into Linked Data as well as the exposure of the transformed Linked Data in an open way. The transformation process can be tricky. Especially, if the datasets consists of information that change dynamically, it takes extra thought to keep the data fresh. Also \textit{data owners} of the datasets can diverge or be unknown in advance. An issue, which is not that obvious, is the problem of copyright licenses, if your approach is data mining on public web pages of the university. This three issues are further discussed in the section of technical challenges (see \ref{technical-architecture-challenges:challenges}).
+
+\begin{itemize}
+\item \textit{Data owner}~\\
+The owner of a dataset is the organization or person that is responsible for the dataset and manages it. The exploration of the data owner is important for transforming the dataset into Linked Open Data, because the owner can authorize access to it and has specific expertise about it. 
+
+\item \textit{Data transformer}~\\
+Dependent on the format of the dataset, the data transformer can either be a program or a semi-automatic approach, where a human prepares the dataset for a program. A complete automatic approach is possible, if the datasets are available in a machine-processable format and if the content can be interpreted (e.g. CSV, XML). Whereas a semi-automatic approach is required, if the content of the dataset can not be interpreted (e.g. images, PDF or hidden in the text) or if the dataset is not available in a machine-processable format (e.g. human expertise). Then a human has to interpret and store the result in a appropriate format so that a automatic approach is applicable. The data sources and the corresponding transformation techniques are further discussed in \ref{technical-architecture-challenges:proposal}.
+
+\end{itemize}
+
+
+\paragraph{The development of LOD applications}
+\label{technical-architecture-challenges:lod-effort:dev-app}
+can emerge at a university, if potential initiators see a requirement for their idea of an application (meets user requirements that are not satisfied by the current information environment) and if the datasets of the resources required for such an application have already been exposed or they are going to be exposed in near future. The evolvement of an environment, where new LOD applications are initiated, assumes incentives for the \textit{development teams}. At a university with researchers and students in the field of informatics as potential \textit{developers}, joy and acknowledgement may be an incentive, beside the monetization
+of the work like through university aid, donors or advertisements. This particular issue was part of the interviews with the students and the results can be seen in \ref{lod-benefits-challenges:playground}.
+
+\begin{itemize}
+\item \textit{Application developer}~\\
+The application developer has the essential expertise for building software applications that meet the predefined specifications, which are influenced by the user requirements. Thereby the developer can also be a stakeholder. Computer science researchers can for example program solutions to simplify some work tasks for themselves or the whole research community at the university. 
+
+\item \textit{Linked Data expert}~\\
+An expert, who has expertise about Linked Data and the supporting frameworks of the used programming language, is inevitable, when developing an application based on Linked Data. Whereas the idea of Linked Data is around for while now, common application developers may not be familiar with this technology to an extent that they can develop a reliable application based on it. The level of the required expertise depends on how the exposed Linked Data shall be used. If the application uses the exposed Linked Data only for querying data, the level is low and an application developer can learn it with spending some extra time. If the application itself shall use the Linked Data approach to store data (e.g. triple store) and/or do more advanced operations on Linked Data like link it with other (linked) datasets, manipulate it or reason over it, a higher level is needed and it is not done by spending some extra time. In this case inviting an expert to the development team, is a better approach.
+\end{itemize}
+
+
+\paragraph{A LOD application use case} 
+\label{technical-architecture-challenges:lod-effort:use-case}
+is the interaction of users with a developed application that makes use of LOD provided by the university. The application use case is the attempt to satisfy user requirements and becomes part of the information environment at the university. The exploration of interesting use cases from the student perspective was an essential part of the conducted interviews and the results can be seen in \ref{lod-benefits-challenges:explored-needs-usecases}.
+
+\subsection{Proposal of a technical architecture}
+\label{technical-architecture-challenges:proposal}
+
+\begin{figure}[t]
+\centering \includegraphics*[width=1.0\columnwidth]{images/technical-architecture/lod_technical_architecture.png}
+\caption{High level architecture for providing linked open data}
+\label{fig:tac-high-level-architecture}
+\end{figure}
+
+This section discusses the proposed technical architecture (see figure \ref{fig:tac-high-level-architecture}), which uses a Linked Data approach to overcome the environment of data silos and to support the evolvement of a university-wide data space.
+
+\paragraph{Data sources}
+\label{technical-architecture-challenges:proposal:data-source}
+with diverging data owners and/or data formats is a phenomena that can likely occur in an environment with multiple independent services. As mentioned earlier, the exploration of the data owner is an important task ... to be able to transform the corresponding data into Linked Data. A second important factor is the format of the data source, which is discussed in following.
+\subparagraph{Semi structured files} 
+
+\subparagraph{Relational databases}
+
+\subparagraph{Web APIs} are one way to publish the underlying data of a service in a structured format so that it can be processed by applications. It is common to provide results in formats such as XML and JSON. At the Vienna University of Technology, the central information system TISS has a RESTful API, which gives access to some data like course information or the address book.
+
+According to the star rating system of Tim Berners-Lee, Web APIs achieve a rating of $\star\star\star$, if the API uses standardized structured formats like XML and JSON. However, this Web APIs have some limitations in the perspective of Linked Data. \begin{quote}Data returned from Web APIs typically exists as isolated fragments, lacking reliable onward links signposting the way to related data. Therefore, while Web APIs make data accessible on the Web, they do not place it truly in the Web, making it linkable and therefore discoverable. \cite{heath_linked_2011} \end{quote} 
+
+...
+
+\subparagraph{...}
+
+\subparagraph{Semantic enriched web pages}
+
+\paragraph{Integration}
+\label{technical-architecture-challenges:proposal:integration}
+...
+
+\paragraph{Provision}
+\label{technical-architecture-challenges:proposal:provision}
+...
+
+\subsection{Challenges}
+\label{technical-architecture-challenges:challenges}
+
+The technical challenges. 
+
+\paragraph{Data freshness}
+\label{technical-architecture-challenges:challenges:data-freshness}
+
+\paragraph{Data ownership}
+\label{technical-architecture-challenges:challenges:data-ownership}
+
+...
+
+\paragraph{License} (of content that has been publicly exposed, sharing possible?)
+\label{technical-architecture-challenges:challenges:license}
+
+...
+
+\paragraph{Comfort zone} of the stakeholders
+\label{technical-architecture-challenges:challenges:comfort-zone}
+
+...
+
+% --------------------------------------------------------------------------------------------
+%  Conclusion
+% --------------------------------------------------------------------------------------------
+
+\section{Conclusion}
+\label{conclusion}
+The conclusion goes here.
+
+% --------------------------------------------------------------------------------------------
+%  Acknowledgment
+% --------------------------------------------------------------------------------------------
+ 
+\section*{Acknowledgment}
+\label{acknowledgment}
+The authors would like to thank...
+
+% --------------------------------------------------------------------------------------------
+%  Appendices
+% --------------------------------------------------------------------------------------------
+
+\appendix
+
+% --------------------------------------------------------------------------------------------
+%  Appendices: Linked Open Data
+% --------------------------------------------------------------------------------------------
+
+\section{Linked Open Data}
+\label{linked-open-data-ap}
+
+... a short description of linked (open) data and the formats ... 
+
+% --------------------------------------------------------------------------------------------
+%  Appendices: Questionaire
+% --------------------------------------------------------------------------------------------
+
+\section{Questionaire}
+\label{questionaire}
+This questionnaire is intended to gather new ideas about useful use cases and applications as well as to figure out datasets that may be interesting for publishing as Linked Open Data. The target group of this interview guideline are students, student’s representatives and interest groups. The whole interview is planned to last not more than 40 minutes.
+
+\subsection{About me}
+\label{questionaire:about-me}
+At that point, where I wrote this interview guideline, this is a short description of myself. My Name is Kevin, I am a student of the Vienna University of Technology and I am attending the bachelor program Software and Information Engineering. I am working on a scientific work about Linked Open Data and the possible advantages of publishing the education related data of the university as Linked Open Data so that the datasets can easily be interlinked with other datasets to enrich them. The focus of this work are useful use cases, applications as well as potential interesting datasets from the student’s perspective.
+
+\subsection{Introduction to Linked Open Data}
+\label{questionaire:lod-intro}
+In the situation, in which we are now, a lot of information/data is published on web pages in a human readable format. So if we want to search for special information, the default procedure may be the following. Let’s say, we want to get information about the learning rooms of the Vienna University of Technology and the way it can be entered accessibly. Then we will use our favourite search engine, scan web pages and follow links to gather the required pieces of information to join it and thereby answering the initial question of our interest. This information cannot be found on a single web page (e.g. Fachschaft Informatik\footnote{\url{https://fsinf.at/lernen}}(student representatives), TUbarrierefrei\footnote{\url{https://www.tuwien.ac.at/dle/barrierefrei/willkommen/}} , Wegweiser\footnote{\url{http://www.wegweiser.ac.at/tuwien/}}). For humans this procedure is no problem, but think of computers. If you want to write an application, that shall answer exactly this initial question, you may have to face a lot of problems and there may be no sufficient way to gather this information. At that point, there is generally no efficient way, that computers/machines understand natural language and furthermore interlink the information of several web pages.
+
+And here Linked (Open) Data enters the game.\begin{quote} Linked Data describes a method of publishing structured data so that it can be interlinked and become more useful. It builds upon standard Web technologies, but rather than using them to serve web pages for human readers, it extends them to share information in a way that can be read automatically by computers. This enables data from different sources to be connected and queried
+\cite{bizer_linked_2009}.\end{quote} Linked Open Data extends Linked Data with the idea of publishing the data in an open way, so that anyone can freely access, use, modify, and share for any purpose.
+
+To come back to the previous example, the information was separated over different sources. Beyond that, the information provided by this sources was only published in a human readable format. To take the idea of Linked Open Data into consideration, the information can also be provided in a structured format so that it is machine-readable. E.g. the Fachschaft Informatik  can provide the list of learning rooms as Linked Open Data and TUbarrierefrei  can share their information about the accessibility of the rooms respectively the buildings as Linked Open Data. Now an application designer can use both datasets and interlink them to answer the initial question of finding an accessible learning room. Furthermore the designer can interlink these datasets with other (external) datasets like Open Street Maps \footnote{\url{http://www.openstreetmap.org/}} or the list of computer rooms of the ZID \footnote{\url{http://www.zid.tuwien.ac.at/en/student/internet_raeume/}}. The result of this may be a map of interesting places for students, employees and visitors.
+
+As not to hang on a single application or use case, one of the incitements of publishing the information as Linked Open Data is the hope, that there is an audience, that come up with creative ideas, of which you and I are currently not thinking about.
+
+\subsection{Proposal of use cases}
+\label{questionaire:usecases}
+
+\subsubsection{Map of places of interest}
+\label{questionaire:usecase-place-of-interest}
+The buildings of the campus of the Vienna University of Technology are spread over a wide area. Especially, if you are new to the campus regardless of whether you are a student, an employee or a visitor, a map application of the places of interest would be very helpful. Not only to get stress less and punctual to lectures, meetings or conferences, also for the social life afterwards – finding cafes or restaurants that are nearby as well as computer rooms or learning rooms for using the gap time between lectures.
+ 
+The University of Southampton has developed a map application for their campus including the location of computer rooms (see live\footnote{\url{http://maps.southampton.ac.uk/}} and figure \ref{fig:ush-map-app}) as well as the University of Münster (see live\footnote{\url{http://app.uni-muenster.de/Karte/}} or figure \ref{fig:um-map-app}). Both universities make use of their Linked Open Data projects.
+
+\begin{figure}[t]
+\centering \includegraphics*[width=1.0\columnwidth]{images/maps-app/lodum_muenster_map_app.png}
+\caption{Map application of the University of Münster}
+\label{fig:um-map-app}
+\end{figure}
+
+The Vienna University of Technology has already published the location of the lecture rooms, seminar rooms and the plans of the buildings in an open way on Wegweiser, but not in a machine-readable format. As already mentioned in the introduction to Linked Open Data, there are different sources of interesting information regarding the campus of the university. TUbarrierfrei hosts information for the accessibility, the Fachschaft provides information about the learning rooms, the ZID about the computer rooms. The project called LinkedGeoData\footnote{\url{http://linkedgeodata.org/About}} provides geographical information (e.g. cafés, restaurants and super markets that are nearby), which has been collected by the community on OpenStreetMaps, as Linked Open Data. In the situation, in which we are now, these datasets cannot be interlinked although an application that offer this information to us in a useable way may be valuable for students and the university itself.
+
+\subsubsection{Course information / Resource management}
+\label{questionaire:usecase-course-rml}
+The Vienna University of Technology consists of eight faculties, which cover the classical areas of natural and technical science and overall, there are 52 different institutes - each of them with further branches and a range of courses. TISS is the central source for actual course information over the WWW, but some of these courses have their own information system (mostly simple websites or e-learning platforms), where special details of the course are published like for example the slides of the lectures, the bibliography of learning resources, dates of events (lectures, exams, ...) or exercise sheets.
+
+When a student wants to get an overview of the proposed resources (books, journal articles, web pages and other forms of media) for studying the content of a course, the student may have to scan web pages and lecture slides for collecting them. Furthermore the student has to search for a supplier for each resource that is not freely accessible over the WWW, like most books and journals. Resource lists management tools try to simplify this procedure. \begin{quote}On the subject of the user experience for the student, RLM tools have often been no more than electronic replicas of the paper based list. There has traditionally been little attempt to allow students to annotate items with regard to their intended use, or interact with content. Students could not feedback whether they have found items useful in attaining their learning goals, or add personal study notes. There has been no facility to allow the students themselves to form new collections or bibliographies of resources for a particular essay or group exercise.\cite{clarke_resource_2009}\end{quote} Resource lists, that are simply exposed on web pages or in lecture slides, are not a very convenient approach from the students perspective. Resource lists management tools can take Linked Open Data principles into consideration and link the resources to the suppliers (and especially to the local academic library, if possible). The students can give feedback to the resource list of the lecturer and create their own resource lists, which can on their part be rated by other students. Students can also comment respectively mark helpful sections of resources.
+
+Talis\footnote{\url{https://talis.com/}} is such an application (see figure \ref{fig:rlm-aber-1}). It is used by various universities of the United Kingdom among others.
+
+% Questions about the interviewee 
+\subsection{About the interviewee}
+\label{questionaire:about-interviewee}
+The questions of this section are intended to get a deeper understanding of the background of the interviewee regarding Linked Open Data, information technology in general and the role inside of the university.
+\vspace*{0.15cm}
+\paragraph{What is your area of responsibility? How would you characterize your daily work tasks?}
+
+\opentwo
+
+\paragraph{How would you classify your level of expertise in the field of information and communication systems?}
+
+\begin{longanswersB}
+	\item Fundamental
+	\item Novice
+	\item Intermediate
+	\item Advanced
+	\item Expert
+\end{longanswersB}
+
+\paragraph{How would you classify your level of expertise in the field of Linked Open Data?}
+
+\begin{longanswersB}
+	\item I never heard of Linked Open Data.
+	\item I heard of Linked Open Data, but never used it.
+	\item I sued Linked Open Data in a not intense way. E.g. as part of a workshop or home project.
+	\item I used Linked Open Data in a practical project.
+	\item I used Linked Open Data in several practical projects and consider myself an expert in Linked Open Data.
+\end{longanswersB}
+
+% Questions about the places of interest and resource list management. 
+\subsection{Places of interest and resource list management}
+\label{questionaire:places-of-intereset-rlm}
+
+\paragraph{Do you have the desire for a map application like the proposed one in the introduction? Do you see a general desire for such an application?}
+
+\opentwo
+
+\paragraph{Can you imagine some further datasets, additional to the ones mentioned in the introduction, that you want to interlink in such a map application? If yes, I am pleased to hear them.}
+
+\opentwo
+
+\paragraph{Do you have a desire for such a resource management application like the proposed one in the introduction? Do you see a general desire for such an application?}
+
+\opentwo
+
+% Questions about interesting datasets and information
+\subsection{Datasets}
+\label{questionaire:datasets}
+
+\paragraph{Which datasets/information that could be public do you want to access more efficient and freely to deskill/beautify your course of the day at the Vienna University of Technology?}
+
+\opentwo
+
+\paragraph{Do you know such datasets that may be potentially interesting for your colleagues or other organizations/interest groups inside of the Vienna University of Technology?}
+
+\opentwo
+
+\paragraph{If there will be a Linked Open Data initiative at Vienna University of Technology, would you be willed to publish your datasets that may be potentially interesting for the community as Linked Open Data? If there will not be an initiative, would you still be willed to?}
+
+\opentwo
+
+% Questions about applications / lod use cases
+\subsection{Linked Open Data use cases / applications}
+\label{questionaire:lod-usecase-app}
+
+\paragraph{Do you have the desire for a concrete application (that may be feasible with Linked Open Data) for your daily work at the university or the social life around the university? If yes, I am pleased to hear from it.}
+
+\opentwo
+
+\paragraph{Can you imagine to use Linked Open Data that is provided by the Vienna University of Technology to develop new applications? Do you see a playground for students (your colleagues)? Which playground do you see?}
+
+\opentwo
+
+% -------------------------------------------------------------------------------------------
+%  Bibliography
+% -------------------------------------------------------------------------------------------
+\newpage
+
+\bibliographystyle{IEEEtran}
+\bibliography{literature}
+
+\end{document}

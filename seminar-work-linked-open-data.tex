@@ -99,7 +99,8 @@ As the application domain for a Linked Data is limited to the university context
 \paragraph{4. Sketching a prototypical implementation of a Linked Open Data solution.}
 In consideration of the above mentioned obstacles of a possible Linked Open Data solution, we gave an outline of a prototypical implementation. It begins by covering the whole process of data provision and ends by applications made for end users. 
 \subsection{Structure of this Paper}
-\%\%\%\%tbd\%\%\%\%
+The rest of the paper is structured as follows: Section \ref{related-work} provides a summary of existing efforts and works related to the research of this paper. Section \ref{lod-benefits-challenges} discusses the methodology as well as the results of the conducted case study concerning research question 2 and 3 from the perspective of students. Section \ref{technical-architecture-challenges:lod-effort} presents a model for describing how an LOD effort can evolve at a university, \ref{technical-architecture-challenges:proposal} proposes a technical architecture for applying Linked Open Data principles to public resources of universities and \ref{technical-architecture-challenges:proposal} discusses challenges. Whereas \ref{technical-architecture-challenges:proposal} is targeted to readers concerned with information \& communication technologies and software architectures, all other sections requires no deeper technical understanding of Linked Data than provided by the introduction, 
+Finally, conclusions are drawn in section \ref{conclusion}.
 
 
 % --------------------------------------------------------------------------------------------
@@ -189,7 +190,7 @@ The interviews were conducted in teams of two researchers. One researcher, who w
 \label{lod-benefits-challenges:interviewees}
 At the beginning of the interviews, the five participants had to answer some questions about their background. They had to describe their daily work tasks and responsibilities at the university. Furthermore, the interviewees had to estimate their level of expertise in the field of Information \& Communication Technologies and in the field of Linked (Open) Data. The results are visualized in the following table. \\
 
-\begin{tabular}{ l | c | c | c |}
+\begin{tabular}{| l | c | c | c |}
  	\multicolumn{2}{c|}{} & \multicolumn{2}{c|}{Level of expertise} \\
  	\hline
 	ID & Assignment & ICT (1-5) & LOD (1-5) \\
@@ -282,7 +283,7 @@ One essential part of the interview was the exploration of the interviewee's ide
 
 TISS already provides a calendar with the dates of all favoured courses, but the calendar is restricted to the lecture times exposed on TISS.
 
-\paragraph{Course information:} As mentioned above, the organizational information of courses may be separated over multiple sources. Firstly, there should be a possibility to present all available organizational information of a certain course to a student. Additionally, there are also internet forums and wikis operated from students that collect information (mostly experience) about certain courses. \textit{\textbf{D}} and \textit{\textbf{E}} wanted to have the ability to interlink the course information on TISS with other sources like VOWI (wiki operated from students). \textit{\textbf{D}} also would like to have the ability to filter courses by categories. For example, when a student is interested in artificial intelligence and (s)he want to get all courses of this field. 
+\paragraph{Course information:} As mentioned above, the organizational information about courses may be separated over multiple sources. Firstly, there should be a possibility to present all available organizational information about a certain course to a student. Additionally, there are also internet forums and wikis operated from students that collect information (mostly experience) about certain courses. \textit{\textbf{D}} and \textit{\textbf{E}} wanted to have the ability to interlink the course information on TISS with other sources like VOWI (wiki operated from students). \textit{\textbf{D}} also would like to have the ability to filter courses by categories. For example, when a student is interested in artificial intelligence and (s)he want to get all courses of this field. 
 
 \paragraph{Event calendar:} Same as with course information, the information about events that are going to take place at the university are separated over different sources in dependence on which organizational unit organizes the event. \textit{\textbf{D}} would like to have a calendar for all events. It shall be possible to filter the events by categories/organizational units. This idea is similar to the event calendar of the University of Southampton\footnote{\url{http://www.events.soton.ac.uk/}}. At the moment of writing, the events are often announced to the students per email, flyers or by word-of-mouth recommendations including social networks. It is likely to oversee events in which you are potentially interested in. \textit{\textbf{D}} would also like to have an event calendar that can be synchronized with the own calendar using the mentioned filter.
 
@@ -375,12 +376,16 @@ is the interaction of users with a developed application that makes use of LOD p
 \label{fig:tac-high-level-architecture}
 \end{figure}
 
-This section discusses the proposed technical architecture (see figure \ref{fig:tac-high-level-architecture}), which uses a Linked Data approach to overcome the environment of data silos and to support the evolvement of a university-wide data space.
+In order to overcome the environment of data silos and to support the evolvement of a university-wide data space for public resources, a technical architecture following Linked Data principles is proposed and discussed in this section. Students of a university are usually on the consuming side of information systems. However, there are students that are operating information systems like wikis and internet forums. Furthermore, some course teams have their own web pages, where detailed information about the course is provided. In earlier studies of Linked Data applied to the domain of universities little attention has been paid to this issue. The proposed technical architecture in contrast suggests a solution for this issue.
 
-\paragraph{Data sources}
+The technical architecture is composed of three tiers. The first tier represents the diverging forms of \textbf{\textit{data sources}} that can occur in an information environment at a university (see \ref{technical-architecture-challenges:proposal:data-source}). The second tier shows the \textbf{\textit{integration}} of such data sources into a central data storage for linked data also called triple store (see \ref{technical-architecture-challenges:proposal:integration}). The third tier shows the \textbf{\textit{provision}} of the stored linked data so that developers can implement application based on it (see \ref{technical-architecture-challenges:proposal:provision}). 
+
+\subsubsection{Data sources}
 \label{technical-architecture-challenges:proposal:data-source}
-with diverging data owners and/or data formats is a phenomena that can likely occur in an environment with multiple independent services. As mentioned earlier, the exploration of the data owner is an important task ... to be able to transform the corresponding data into Linked Data. A second important factor is the format of the data source, which is discussed in following.
-\subparagraph{Semi structured files} 
+
+\paragraph{Not machine-processable or -interpretable} sources of knowledge like the expertise of a human (e.g. which rooms are in which way accessible) or digital data that is hard to interpret (e.g. images, PDF files) have to be transformed by a human into data formats that can be processed and interpreted by computers in order to be managed by the proposed technical architecture.
+
+\paragraph{Semi structured sources} 
 
 \subparagraph{Relational databases}
 
@@ -394,11 +399,11 @@ According to the star rating system of Tim Berners-Lee, Web APIs achieve a ratin
 
 \subparagraph{Semantic enriched web pages}
 
-\paragraph{Integration}
+\subsubsection{Integration}
 \label{technical-architecture-challenges:proposal:integration}
 ...
 
-\paragraph{Provision}
+\subsubsection{Provision}
 \label{technical-architecture-challenges:proposal:provision}
 ...
 
@@ -461,7 +466,7 @@ At that point, where I wrote this interview guideline, this is a short descripti
 
 \subsection{Introduction to Linked Open Data}
 \label{questionaire:lod-intro}
-In the situation, in which we are now, a lot of information/data is published on web pages in a human readable format. So if we want to search for special information, the default procedure may be the following. Let’s say, we want to get information about the learning rooms of the Vienna University of Technology and the way it can be entered accessibly. Then we will use our favourite search engine, scan web pages and follow links to gather the required pieces of information to join it and thereby answering the initial question of our interest. This information cannot be found on a single web page (e.g. Fachschaft Informatik\footnote{\url{https://fsinf.at/lernen}}(student representatives), TUbarrierefrei\footnote{\url{https://www.tuwien.ac.at/dle/barrierefrei/willkommen/}} , Wegweiser\footnote{\url{http://www.wegweiser.ac.at/tuwien/}}). For humans this procedure is no problem, but think of computers. If you want to write an application, that shall answer exactly this initial question, you may have to face a lot of problems and there may be no sufficient way to gather this information. At that point, there is generally no efficient way, that computers/machines understand natural language and furthermore interlink the information of several web pages.
+In the situation, in which we are now, a lot of information/data is published on web pages in a human readable format. So if we want to search for special information, the default procedure may be the following. Let’s say, we want to get information about the learning rooms of the Vienna University of Technology and the way it can be entered accessibly. Then we will use our favourite search engine, scan web pages and follow links to gather the required pieces of information to join it and thereby answering the initial question of our interest. This information cannot be found on a single web page (e.g. Fachschaft Informatik\footnote{\url{https://fsinf.at/lernen}}(student representatives), TUbarrierefrei\footnote{\url{https://www.tuwien.ac.at/dle/barrierefrei/willkommen/}} , Wegweiser\footnote{\url{http://www.wegweiser.ac.at/tuwien/}}). For humans this procedure is no problem, but think of computers. If you want to write an application, that shall answer exactly this initial question, you may have to face a lot of problems and there may be no sufficient way to gather this information. At that point, there is generally no efficient way, that computers/machines understand natural language and furthermore interlink the information about several web pages.
 
 And here Linked (Open) Data enters the game.\begin{quote} Linked Data describes a method of publishing structured data so that it can be interlinked and become more useful. It builds upon standard Web technologies, but rather than using them to serve web pages for human readers, it extends them to share information in a way that can be read automatically by computers. This enables data from different sources to be connected and queried
 \cite{bizer_linked_2009}.\end{quote} Linked Open Data extends Linked Data with the idea of publishing the data in an open way, so that anyone can freely access, use, modify, and share for any purpose.

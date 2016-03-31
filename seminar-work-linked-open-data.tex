@@ -6,6 +6,7 @@
 \usepackage{csquotes}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{listings}
 \usepackage{custompaperandpencil}
 
 \setlength{\parindent}{14.0pt} 
@@ -115,7 +116,7 @@ Finally, conclusions are drawn in section \ref{conclusion}.
 
 \section{Related work}
 \label{related-work}
-
+This section gives a brief overview of existing work relating to Linked Open Data~(LOD) in educational contexts. In particular we investigate experiences and established practices in that area. Fortunately there has been plenty of work done especially around \textit{Linked Universities}~(section \ref{related-work:linked-universities}), an alliance of european universities. Next, selected participants of that project are briefly discussed who had gained great experiences at publishing educational resources. Although beneficial, but many contributions lead to divergent data sets and concepts. The project \textit{LinkedUp}~(section \ref{related-work:linkedup}) tries to combine several of those facilitating a uniform view of these concepts.
 
 \subsection{Linked Universities}
 \label{related-work:linked-universities}
@@ -145,22 +146,49 @@ The members of this alliance are:(~\cite{daquin_members_2014})
 \subsubsection{Example: The Open University and the LUCERO Project}
 LUCERO (Linking University Content for Education and Research Online) was a project from the Open University, funded for 1 year by the JISC Information Environment 2011 Programme under the call Deposit of research outputs and Exposing digital content for education and research. Aim of the project was to "` \textit{ scope, prototype, pilot and evaluate reusable, cost-effective solutions relying on linked data for exposing and connecting educational and research content}"'.\cite{daquin_lucero_2010} The projects connected with other organizations through LinkedUniversities.org to gather common issues and practices. The outcome was the first university linked data platform, \url{http://data.open.ac.uk/}, with much impact on The Open University and the education community.
 
+\subsection{LinkedUp project - Linking Web Data for Education}
+\label{related-work:linkedup}
+The LinkedUp project\footnote{\url{http://linkedup-project.eu/}} is a project funded by the European Commission aimed at pushing forward the exploitation and adoption of Linked Open Data in educational organizations and institutions. This project started on the 1st November 2012 and lasted about 2 years. 
+
+More specifically, the projects main objectives are:
+\begin{itemize}
+	\item \texttt{Open Web Data Success Stories}~\\
+	The identification of innovative success stories using tools and data sets in the education sector helps at spreading knowledge and awareness of Linked Data 
+	principles. 
+	\item \texttt{Web Data Curation}~\\
+	The collection of relevant educational data sets facilitate the integration of third party data and applications. 
+	\item \texttt{Evaluation Framework for Open Web Data Applications}~\\
+	Evaluation of successful large scale applications driven by Linked Open Data promotes the adoption of Linked Open Data especially in educational contexts. 
+	\item \texttt{Technology Transfer in the Education Sector}~\\
+	The promotion of Linked Open Data technologies is an explicit goal of the LinkedUp project. 
+\end{itemize}
+
+The outcome of the LinkedUp project to investigate the goals listed above are several so-called \textit{"deliverables"}\footnote{\url{http://linkedup-project.eu/resources/deliverables/}}. 
+
+Below, there is a list of the most relevant deliverables:
+\paragraph{State of the art and data assessment}~\\
+In this report~\cite{herder_state_2013} a comprehensive study on the developments in the field of Linked Data and
+related fields of educational data mining and learning analytics is given. The report resulted from a collaboration between the Leibniz University of Hannover, the Open Knowledge Foundation, the Open Universiteit Nederland, the Open University, Elsevier and Exact Learning Solutions. The authors first briefly describe fundamental technologies and concepts, namely Linked Data, educational data mining and learning analytics used throughout the paper. Several candidates representing each of the two basic data mining principles~(\textit{data harvesting} and \textit{distributed search}) for heterogeneous data sets are presented. The field of learning analytics focuses on techniques targeted at analyzing and understanding educational learning processes and environments. A complete discussion on this topic though, was out of scope since this is a relatively new research area. Next, challenges and barriers concerning the heterogeneity of open educational resources are investigated. Techniques trying to solve isolated data sets include \textit{schema mapping} and \textit{classification and clustering}. Finally, data sets from the LinkedUp repository\footnote{\url{http://data.linkededucation.org/linkedup/catalog/browse/}} and possible legal obstacles and solutions to these are assessed. 
+
+\paragraph{The LinkedUp Challenge(s)}
+The LinkedUp Challenge\footnote{\url{http://linkedup-challenge.org/}} was organized as three separate challenges \textit{Veni}, \textit{Vidi} and \textit{Vici} ending on October 2013, April 2014 and November 2014 respectively. While the goal of the first competition~(Veni) was developing a \textit{"prototype or demo that uses linked and/or open data for educational purposes"}, the Vidi challenge was targeted at finding \textit{"innovative and robust prototypes and demos for tools, which still may contain bugs, as long as it has a stable set of features and there is some proof that us can be deployed on a realistic scale"}. The rationale of the latter, yet more advanced challenge was to build \textit{"advanced prototypes and tools that should be mature and stable; it should be used or have been used by a fair amount of users on a realistic scale"}~\cite{herder_linkedup_2014}. 
+The combined goal though was to promote creativity and innovation in ways to mash-up and link educational resources and services. In addition, companies, universities and government agencies were encouraged to share and (cross-)link to educational and non-educational assets. 
+
+The winner for Veni was \texttt{Polimedia}\footnote{\url{http://www.polimedia.nl/}}, an application facilitating large-scale, cross-media analysis of the coverage of political events.
+\texttt{TuvaLabs}\footnote{\url{https://tuvalabs.com/}} won the first place of the Vidi competition aimed at transforming open data into opportunities for meaningful teaching and learning, equipping teachers and students with high quality, consolidated data sets. Finally, \texttt{Flax}~(Flexible Language Acquisition)\footnote{\url{http://flax.nzdl.org/}},
+the winner of the Vici competition, was designed to automate the production and delivery of interactive digital language collections and targeted to non-expert users~(e.g. language teachers, language learners, subject specialists, instructional design and e-learning support teams). 
+
+\paragraph{Evaluation Framework}
+\cite{drachsler_final_2014} proposed an evaluation framework throughout the three web open educational data competitions Veni, Vidi and Vici, described in detail in the last paragraph. The aim of the evaluation framework was to evaluate the usefulness, usability, acceptance and appropriateness of the contributions to the LinkedUp challenges. Therefore experts had to define and/or refine assessment criteria and indicators for measuring the quality of the framework. Practically the frameworks usefulness and ease of use was tested through a questionnaire and interviews. A detailed questionnaire for each of the three challenges as well as the final version of the evaluation framework are accessible at \cite{drachsler_final_2014}. 
+
 \subsection{Austrian Open Data}
 \label{related-work:austrian-open-data}
 In Austria datasets of various governmental units from different areas of life are exposed on the open data portal \texttt{data.gv.at}. Whereas this data portal is restricted to governmental units\footnote{Member of 'Cooperation OGD Austria'}, \texttt{opendataportal.at} provides a platform for anyone who wants to share data in an open way. In both cases the category \textit{'Bildung und Forschung'} (German for education and research) is especially of interest for (Linked) Open Data initiatives at Austrian universities. Overall, the published data sets are mainly localizing points of interest (libraries, museums and universities) and apart of the Vienna University of Economics more specific information like provided courses and curricula has not been published yet about universities. In fact, the Vienna University of Economics is already active and publishes mainly course information and library collections in a machine-readable and open way on their open data portal \texttt{data.wu.ac.at} and on \texttt{opendataportal.at}. All in all the amount of data concerning education and research on the mentioned Austrian data portals is negligibly at the moment of writing.
 
 Meanwhile data is exposed in machine-readable and open formats, there has been little effort taken to provide it as Linked Open Data. However, Christian Weiss has designed a system\footnote{\url{http://cweiss.net/lod/} last accessed on 15.03.2016} in connection with his master thesis\footnote{C. Weiss, 'Transferring Open Government Data into the global Linked Open Data Cloud', 2013} to provide a subset of the Open Government Data provided by Vienna (\texttt{data.wien.gv.at}) as Linked Open Data. In the same year 2013 the project LODPilot\footnote{\url{http://lodpilot.at/}} was initiated to create an infrastructure to provide the basic datasets published on \texttt{data.gv.at} and \texttt{data.wien.gv.at} as Linked Open Data.
 
-Beside the open data portals, \texttt{Wegweiser}\footnote{\url{http://www.wegweiser.ac.at/}} is an early attempt of a set of Austrian universities to share information of public interest like course information, curricula and building plans in an open way. The information on Wegweiser is served only in a human readable format and therefore not easily processable by computers so that applications based on it can difficultly evolve. Furthermore, the service is not maintained any more and outdated. \texttt{Open Street Maps}\footnote{\url{https://www.openstreetmap.org/}} is a global service that make spatial information of Austria (a.o.), which has been collected by an open community, available in an open way. The University of Leipzig has build an infrastructure to provide this collected information as Linked Open Data with the project named \texttt{LinkedGeoData}\footnote{\url{http://linkedgeodata.org/About}}. \texttt{DBPedia}\footnote{\url{http://wiki.dbpedia.org/}} is another project of the mentioned university that extracts knowledge from Wikipedia and transforms it into Linked Open Data. For example, \texttt{DBPedia} contains a machine-readable description of the Vienna University of Technology\footnote{\url{http://dbpedia.org/page/Vienna_University_of_Technology}}. \texttt{Wikidata}\footnote{\url{https://www.wikidata.org/}} is a project similar to \texttt{DBPedia} and also provides knowledge about Austria in a machine-readable format. 
+Beside the open data portals, \texttt{Wegweiser}\footnote{\url{http://www.wegweiser.ac.at/}} is an early attempt of a set of Austrian universities to share information of public interest like course information, curricula and building plans in an open way. The information on Wegweiser is served only in a human readable format and therefore not easily processable by computers so that applications based on it can difficultly evolve. Furthermore, the service is not maintained any more and outdated. \texttt{Open Street Maps}\footnote{\url{https://www.openstreetmap.org/}} is a global service that make spatial information of Austria (a.o.), which has been collected by an open community, available in an open way. The University of Leipzig has build an infrastructure to provide this collected information as Linked Open Data with the project named \texttt{LinkedGeoData}\footnote{\url{http://linkedgeodata.org/About}}. \texttt{DBPedia}\footnote{\url{http://wiki.dbpedia.org/}} is another project of the mentioned university that extracts knowledge from Wikipedia and transforms it into Linked Open Data. For example, \texttt{DBPedia} contains a machine-readable description of the Vienna University of Technology\footnote{\url{http://dbpedia.org/page/Vienna_University_of_Technology}}. \texttt{Wikidata}\footnote{\url{https://www.wikidata.org/}} is a project similar to \texttt{DBPedia} and also provides knowledge about Austria in a machine-readable format.
 
-\subsection{Linked Education}
-\label{related-work:linked-education}
-Linked~Education represents the idea of using Linked~Data principles for educational purposes. 
-
-...
-\subsection{Earlier studies}
-\label{related-work:earlier-studies}
-...
 
 % --------------------------------------------------------------------------------------------
 %  Result: Case study
@@ -430,18 +458,39 @@ Nevertheless, there are techniques to integrate these diverging data sources int
 
 \paragraph{Content Management Systems:} Content Management Systems (CMS) are like wikis popular tools for publishing knowledge on the web; \enquote{common used for blogging to express personal or professional views on the world or on observed items that may be of interest to others.}\cite{bojars_using_2006} CMSs are not only used for blogging, but also for more general purposes. The Vienna University of Technology has set up a Typo3\footnote{\url{https://typo3.org/}} CMS to serve valuable information about the university and about some of it’s organizational units (e.g. interest group for accessibility). The same as with MediaWikis, the content published by these CMSs is valuable, but often not machine-readable. Particular CMSs provide modules that simplify the annotation of CMS’s content with explicit, machine-readable information. Drupal\footnote{\url{https://drupal.org/}} does for example automatically provide meta-data (title, author, topic, etc.) about the published content. In this case, the proposed \textbf{\textit{integration tier}} could integrate those meta-data into the system.
 
-\paragraph{Semantically enriched web pages:}
+\paragraph{Semantically enriched web pages:} Solutions like annotating content published by Content Management Systems and MediaWikis lead to semantically enriched web pages. RDFa is often used alongside microdata and mircroformats. RDFa is a extension to HTML5 that makes it possible to annotate human-readable information contained in HTML5 pages to provide semantics for machines. \enquote{RDFa is popular in contexts where data publishers are able to modify HTML templates but have relatively little additional control over the publishing infrastructure} \cite{heath_linked_2011}. A snippet of a HTML page using RDFa is shown in the following, where the fact that Heinz Zemanek is an alumni of the Vienna University of Technology is stated.
 
-\paragraph{Linked Open Data:} 
+\begin{lstlisting}[basicstyle=\tiny, language=html, frame=single] 
+<div vocab="http://schema.org/" typeof="CollegeOrUniversity">
+  <span property="name">Vienna University of Technology</span>
+  <link property="sameAs"
+        href="http://en.wikipedia.org/wiki/Vienna_University_of_Technology"/>
+  <div property="alumni" typeof="OrganizationRole">
+    <div property="alumni" typeof="Person">
+      <span property="name">Heinz Zemanek</span>
+      <link property="sameAs" href="http://en.wikipedia.org/wiki/Heinz_Zemanek"/>
+    </div>
+  </div>
+</div>
+\end{lstlisting}
+Microdata and microformats work in a similar way. Not only CMSs emplyoed by the university, also course teams who are employing own information systems or student representative`s websites could  make use of this technique. It is a convenient way for the data owner to serve data in a human- and machine-readable format. The \textbf{\textit{integration tier}} shows how this data can be extracted and integrated into the system.
+
+\paragraph{Linked Open Data:} The Linked Open Data cloud (see figure \ref{fig:lod-cloud-diagram}) visualizes datasets of various domains that have been published in Linked Data format (2014)\cite{_linking_????}. Berners-Lee emphasizes in his principles for publishing Linked Data that the data shall be interlinked with external linked data to give context. Hence, the gathering of particular external datasets must also be considered by the technical architecture for the purpose of interlinking. The ways in which linked data is exposed can diverge. It can be a SPARQL endpoint (see \ref{technical-architecture-challenges:proposal:provision}), a Web API, or a RDF dump possibly published on a repository like \texttt{datahub.io}. For example, the European Library\footnote{\url{http://theeuropeanlibrary.org}} manages the collections of national libraries as well as research libraries of Europe and exports them regularly into a single RDF file (dump). The academic library of the university could interlink items of it`s own collection with the matching items of the European Library project. As a result, the academic library enriches it`s own knowledge about this item with the collected knowledge of the European Library project (e.g. contributors). 
+
+\begin{figure}[t]
+\centering \includegraphics*[width=1.0\columnwidth]{images/technical-architecture/lod-cloud_colored_1000px.png}
+\caption{LOD cloud diagram of the year 2014}
+\label{fig:lod-cloud-diagram}
+\end{figure}
+
 
 \subsubsection{Integration}
 \label{technical-architecture-challenges:proposal:integration}
 The \textit{\textbf{data source tier}} represents diverging data sources, which may be part of the information environment of a university. The \textit{\textbf{integration tier}} shows how to integrate the demanded and available datasets of those data sources into the system. The integration process consists of multiple steps, which are described in the following.
 
-\paragraph{Data acquisition} is the first step of the integration process and is required for acquiring the data that shall be integrated into the system. According to Simperl et.al \cite{simperl_using_2013} there are number of ways, in which the data consumed and integrated within the system may be accessed. The approach used for this proposed architecture is the }\textit{crawling pattern}, where the data is loaded in advance and stored in a local triple store so that it can be accessed efficiently. \enquote{The disadvantage of this pattern is that the data might not be up to date}. An alternative approach is the \textit{On-The-Fly Dereferencing pattern}, \enquote{where the URIs are dereferenced at the moment that the system requires the data}. The advantage is up-to-data data, but the performance may be affected when the data transformation and dereferencing is costly.\cite{simperl_using_2013}.
+\paragraph{Data acquisition} is the first step of the integration process and is required for acquiring the data that shall be integrated into the system. According to Simperl et.al.\cite{simperl_using_2013} there are number of ways, in which the data consumed and integrated within the system may be accessed. The approach used for this proposed architecture is the \textit{crawling pattern}, where the data is loaded in advance and stored in a local triple store so that it can be accessed efficiently. \enquote{The disadvantage of this pattern is that the data might not be up to date}. An alternative approach is the \textit{On-The-Fly Dereferencing pattern}, \enquote{where the URIs are dereferenced at the moment that the system requires the data}. The advantage is up-to-data data, but the performance may be affected when the data transformation and dereferencing is costly\cite{simperl_using_2013}.
 
-\subparagraph{Physical wrapper:}
-
+\subparagraph{Physical wrapper:} 
 
 \subparagraph{Crawling for RDFa and microdata:}
 
@@ -449,17 +498,21 @@ The \textit{\textbf{data source tier}} represents diverging data sources, which 
 
 \subsubsection{Provision}
 \label{technical-architecture-challenges:proposal:provision}
-In the \textit{\textbf{integration tier}} the demanded and available datasets were integrated into a local triple store. The \textit{\textbf{provision tier}} gives now an overview of the different ways to grant the end user access to the linked data stored in the local triple store. The advantage of SPARQL endpoints is that the end user can flexibly request a particular subset of the data stored in the local triple store.
+In the \textit{\textbf{integration tier}} the demanded and available datasets were integrated into a local triple store. The \textit{\textbf{provision tier}} gives now an overview of the different ways to grant the end user access to the linked data stored in the local triple store.
 
-\paragraph{SPARQL endpoint:} SPARQL is a language that can be used to query a RDF dataset or in this case the whole triple store. A SPARQL endpoint is a web service that can process SPARQL requests and returns the corresponding result.
+\paragraph{SPARQL endpoint:} SPARQL is a language that enables the querying of a RDF dataset or in this case the whole triple store. A SPARQL endpoint is a web service that can process SPARQL requests and returns the corresponding results. The advantage of SPARQL endpoints is that the end user can flexibly request a particular subset of the data stored in the local triple store.
 
 \paragraph{RESTful API:} \enquote{RESTful APIs are a programming interface implemented using HTTP and the principles of REST (Representational State Transfer) to allow actions on Web resources}.\cite{hyland_linked_????}
-In order to not violate the principles of Linked Open Data the API must be open. Linked data API\footnote{\url{http://www.epimorphics.com/web/projects/linked-data-api}} can be used to provide a RESTful web service to the end user making also SPARQL requests possible.
+In order to not violate the principles of LOD the API must be open. Linked data API\footnote{\url{http://www.epimorphics.com/web/projects/linked-data-api}} can be used to provide a RESTful interface to the end user making also SPARQL requests possible, so that the end user does not have to forgo their flexibility.
 
-\paragraph{CMS enriched with RDFa:}
+\paragraph{CMS enriched with RDFa:} The previous mentioned techniques for exposing stored linked data are not suitable for human readers. They are targeting the application developer as end user. However,  \textit{resolvable URIs} are an approach to provide knowledge about an entity contained in the triple store by visiting it`s unique identifier (HTTP URI). One advantage is the possibility of applying \textit{content negotiation}. This means, that the end user can specify the desired format of the response by modifying the \texttt{Accept} entry of the request's header (machine-readable: \texttt{application/rdf+xml}, human-readable: \texttt{text/html}); \texttt{text/html} is the default entry for web browsers.
+
+In general, the human-readable response will be a web page, which leads to a further advantage. These web pages on their side can be annotated using RDFa to provide semantics for machines. The reason why it can be useful to do so meanwhile the machine-readable knowledge could simply be requested by using \textit{content negotiation} is the ability of nowadays search engines to extract the knowledge provided by RDFa or mircrodata. \enquote{The embedded data is crawled together with the HTML pages by search engines, such as Google, Yahoo!, and Bing, which use the data to enrich their search results}\cite{bizer_deployment_2013}. Schema.org\footnote{\url{http://schema.org/}} is a movement of major search engines to create, maintain, and promote schemas for structured data on the Internet. The idea is to improve the search experience for users.
+
+Whereas \textit{resolvable URIs} are a good approach to serve knowledge in a human- and machine-readable format, it can not be used to query the stored linked data. Which is why one of the previous mentioned techniques (SPARQL endpoint or RESTful API) must be employed simultaneously to provide this ability. A service that uses \textit{resolvable URIs} and \textit{content negotiation} in combination with a SPARQL endpoint is DBPedia. DBPedia also annotates the knowledge published on a web page using RDFa (see f.e. \url{http://dbpedia.org/resource/Vienna_University_of_Technology}).
 
 \subsubsection{Vocabularies}
-\label{technical-architecture-challenges:proposal:provision}
+\label{technical-architecture-challenges:proposal:vocabulary}
 ...
 
 \subsection{Challenges}

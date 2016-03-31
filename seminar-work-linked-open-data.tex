@@ -8,8 +8,11 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{custompaperandpencil}
+\usepackage[backend=bibtex]{biblatex}
 
 \setlength{\parindent}{14.0pt} 
+
+\bibliography{literature}
 
 \begin{document}
 
@@ -490,7 +493,7 @@ The \textit{\textbf{data source tier}} represents diverging data sources, which 
 
 \paragraph{Data acquisition} is the first step of the integration process and is required for acquiring the data that shall be integrated into the system. According to Simperl et.al.\cite{simperl_using_2013} there are number of ways, in which the data consumed and integrated within the system may be accessed. The approach used for this proposed architecture is the \textit{crawling pattern}, where the data is loaded in advance and stored in a local triple store so that it can be accessed efficiently. \enquote{The disadvantage of this pattern is that the data might not be up to date}. An alternative approach is the \textit{On-The-Fly Dereferencing pattern}, \enquote{where the URIs are dereferenced at the moment that the system requires the data}. The advantage is up-to-data data, but the performance may be affected when the data transformation and dereferencing is costly\cite{simperl_using_2013}.
 
-\subparagraph{Physical wrapper:} 
+\subparagraph{Physical wrapper:}
 
 \subparagraph{Crawling for RDFa and microdata:}
 
@@ -553,6 +556,17 @@ The conclusion goes here.
 \section{Acknowledgement}
 \label{acknowledgement}
 The author would like to thank Fachschaft Informatik, Faustmann Georg, Dominik Moser, Siebenhandl Hannes and Schumacher Barbara for taking part in the case study and for sharing your ideas and thoughts.
+
+% -------------------------------------------------------------------------------------------
+%  Bibliography of main content
+% -------------------------------------------------------------------------------------------
+\newpage
+
+\printbibliography[title={References to refereed scientific work}, keyword=refsw]
+
+\printbibliography[title={References to non-refereed work}, keyword=nonrefw]
+
+\printbibliography[title={References to websites}, type=misc]
 
 % --------------------------------------------------------------------------------------------
 %  Appendices
@@ -682,11 +696,9 @@ The questions of this section are intended to get a deeper understanding of the 
 \opentwo
 
 % -------------------------------------------------------------------------------------------
-%  Bibliography
+%  Bibliography of appendix
 % -------------------------------------------------------------------------------------------
-\newpage
 
-\bibliographystyle{IEEEtran}
-\bibliography{literature}
+\printbibliography[title={Appendix references}, keyword=appendix]
 
 \end{document}

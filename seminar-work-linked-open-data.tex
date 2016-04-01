@@ -491,13 +491,41 @@ Microdata and microformats work in a similar way. Not only CMSs emplyoed by the 
 \label{technical-architecture-challenges:proposal:integration}
 The \textit{\textbf{data source tier}} represents diverging data sources, which may be part of the information environment of a university. The \textit{\textbf{integration tier}} shows how to integrate the demanded and available datasets of those data sources into the system. The integration process consists of multiple steps, which are described in the following.
 
-\paragraph{Data acquisition} is the first step of the integration process and is required for acquiring the data that shall be integrated into the system. According to Simperl et.al.\cite{simperl_using_2013} there are number of ways, in which the data consumed and integrated within the system may be accessed. The approach used for this proposed architecture is the \textit{crawling pattern}, where the data is loaded in advance and stored in a local triple store so that it can be accessed efficiently. \enquote{The disadvantage of this pattern is that the data might not be up to date}. An alternative approach is the \textit{On-The-Fly Dereferencing pattern}, \enquote{where the URIs are dereferenced at the moment that the system requires the data}. The advantage is up-to-data data, but the performance may be affected when the data transformation and dereferencing is costly\cite{simperl_using_2013}.
+\paragraph{Data acquisition} is the first step of the integration process and is required for acquiring the data that shall be integrated into the system. According to Simperl et.al.\cite{simperl_using_2013}\cite{heath_linked_2011} there are number of ways, in which the data consumed and integrated within the system may be accessed. The approach used for this proposed architecture is the \textit{crawling pattern}, where the data is acquired in advance and afterwards the acquired data is integrated and cleansed. The disadvantage of this pattern is that the data will be replicated and might not be up to date. Nevertheless, \enquote{the crawling pattern is suitable for implementing applications on top of an open, growing set of sources}\cite{heath_linked_2011}, which is beneficial for systems that shall integrate public resources of a university. An alternative approach is the \textit{On-The-Fly Dereferencing pattern}, \enquote{where the URIs are dereferenced at the moment that the system requires the data}; no local storage is needed. The advantage is up-to-date data, but the performance may be very slow in dependence of how costly gathering and transforming the demanded data is.
 
-\subparagraph{Physical wrapper:}
+%\subparagraph{Physical wrapper:}
 
-\subparagraph{Crawling for RDFa and microdata:}
+%\subparagraph{Crawling for RDFa and microdata:}
 
-\subparagraph{Linked Data wrapper:}
+%\subparagraph{Linked Data wrapper:}
+
+
+\paragraph{Vocabulary mapping} is the second step of the integration process. In this step the acquired data is translated into the system`s target schema (in section \ref{technical-architecture-challenges:proposal:vocabulary} a collection of vocabularies that may be of interest for a university`s domain is listed). The translation is definitely necessary for acquired data that has not already be transformed into Linked Data. For the proposed technical architecture, this would be the case for (semi-)structured datasets like CSV or XML. In the following, some tools are listed for transforming (semi-)structured datasets into Linked Data.
+
+\begin{description}
+ 	\item[\small From Tables and Spreadsheets:] $ $
+ 	\begin{itemize}
+ 		\item \textbf{Open Refine}\footnote{\url{http://openrefine.org/}} is a graphical tool for semi-automatically transforming and cleaning messy data including among others CSV, XML and JSON. A RDF Extension~\footnote{\url{http://lab.linkeddata.deri.ie/2010/grefine-rdf-extension/}} can be used to map the data to one`s vocabulary and to export the result into a RDF file.
+ 		\item \texttt{Any23}~\footnote{\url{http://lab.linkeddata.deri.ie/2010/grefine-rdf-extension/}} or  \texttt{csv2rdf4lod} \footnote{\url{https://github.com/timrdf/csv2rdf4lod-automation/wiki}} are Java APIs for simple transformations from CSV into RDF.
+	\end{itemize}
+	\item[\small From RSS and XML:] $ $
+	\begin{itemize}
+		\item A common used approach to transform XML into other representations is \texttt{XSLT}. W3C recommends the \texttt{GRDDL}~\footnote{\url{http://www.w3.org/TR/grddl/}} language for transforming XML into RDF. RSS-feeds using a standard XML file format, so the same tools can be applied for it.
+	\end{itemize}
+\end{description}
+
+Furthermore, different Linked Data sources often use different vocabularies to represent data about the same type of entity.\cite{berners-lee_fractal_2008} In this case a vocabulary mapping may also be necessary in order to give the \texttt{applications} a integrated view of the stored linked data. 
+
+\paragraph{Interlinking} is the third step of the integration process. As mentioned earlier, a Linked Data principle is the interlinking with other linked data to give context. Interlinking entities of the local triple store with matching entities of other datasets enriches the knowledge about these entities by giving the end user the ability to explore. \texttt{Silk} \footnote{\url{http://silkframework.org/}} is a Java framework that supports the interlinking of datasets with an own specification language. \texttt{Silk} itself provides a workbench (graphical user interface) to configure the linking and can run locally on a single server or distributed over multiple computers.  
+
+\paragraph{Cleansing} is the fourth step of the integration process. In this step the data that has been transformed and maybe interlinked with other datasets in the previous steps is cleaned up before it is stored (e.g. removal of ambiguities).
+
+\paragraph{Storing} is the final step in which the linked data is stored in a central triple store. There are a lot of implementations of such a triple store, like 
+\texttt{Sesame}~\footnote{\url{http://rdf4j.org/}}, 
+\texttt{Jena TDB}~\footnote{\url{http://openjena.org/TDB/}},
+\texttt{Virtuoso Universal Server}~\footnote{\url{http://virtuoso.openlinksw.com/}},
+\texttt{4Store}~\footnote{\url{http://4store.org/}} or 
+\texttt{SwiftOWLIM}~\footnote{\url{http://www.ontotext.com/owlim/}}. The LUCERO project settled for the \texttt{SwiftOWLIM}, because it is ``\textit{free, scalable and efficient, and includes limited reasoning capabilities}''~\cite{daquin_lucero_2010-1}.
 
 \subsubsection{Provision}
 \label{technical-architecture-challenges:proposal:provision}

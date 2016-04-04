@@ -9,6 +9,7 @@
 \usepackage{listings}
 \usepackage{custompaperandpencil}
 \usepackage[backend=bibtex, style=ieee]{biblatex}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=1.5cm,includefoot]{geometry}
 
 \setlength{\parindent}{14.0pt} 
 
@@ -275,7 +276,7 @@ At the beginning of the interviews, the five participants had to answer some que
 
 \begin{figure}[t]
 \label{fig:ush-map-app}
-\centering \includegraphics*[width=1.0\columnwidth]{images/maps-app/southampton_map_app.png}
+\centering \includegraphics*[width=0.75\columnwidth]{images/maps-app/southampton_map_app.png}
 \caption{Map application of the University of Southampton}
 \end{figure}
 
@@ -300,7 +301,7 @@ The information required for such an application is separated over different dat
 The Vienna University of Technology consists of eight faculties, which cover the classical areas of natural and technical science and overall, there are 52 different institutes; each of them with further branches and a range of courses. TISS is the central source for actual course information over the WWW, but some of these courses have their own information system (mostly simple websites or e-learning platforms), where special details of the course are published like for example the slides of the lectures, the bibliography of learning resources, dates of events (lectures, exams, ...) or exercise sheets.
 
 \begin{figure}[t]
-\centering \includegraphics*[width=1.0\columnwidth]{images/rlm-tools/aber-explore-1.png}
+\centering \includegraphics*[width=0.9\columnwidth]{images/rlm-tools/aber-explore-1.png}
 \caption{Reading list for 'Exploring the International 1', Aberystwyth University}
 \label{fig:rlm-aber-1}
 \end{figure}
@@ -386,7 +387,7 @@ is controlled by the demand on publishing the known datasets of this resource as
 The owner of a dataset is the organization or person that is responsible for the dataset and manages it. The exploration of the data owner is important for transforming the dataset into Linked Open Data, because the owner can authorize access to it and has specific expertise about it. 
 
 \item \textit{Data transformer}~\\
-Dependent on the format of the dataset, the data transformer can either be a program or a semi-automatic approach, where a human prepares the dataset for a program. A complete automatic approach is possible, if the datasets are available in a machine-readable format and if the content can be interpreted (e.g. CSV, XML). Whereas a semi-automatic approach is required, if the content of the dataset can not be interpreted (e.g. images, PDF or knowledge hidden in text) or furthermore if the dataset is not available in a machine-processable format (e.g. human expertise). Then a human has to interpret and store the result in a appropriate format so that a automatic approach is applicable. The data sources and the corresponding transformation techniques are further discussed in Section \ref{technical-architecture-challenges:proposal}.
+Dependent on the format of the dataset, the data transformer can either be a program or a semi-automatic approach, where a human prepares the dataset for a program. A complete automatic approach is possible, if the datasets are available in a machine-readable format and if the content can be interpreted (e.g. CSV, XML). Whereas a semi-automatic approach is required, if the content of the dataset cannot be interpreted (e.g. images, PDF or knowledge hidden in text) or furthermore if the dataset is not available in a machine-processable format (e.g. human expertise). Then a human has to interpret and store the result in a appropriate format so that a automatic approach is applicable. The data sources and the corresponding transformation techniques are further discussed in Section \ref{technical-architecture-challenges:proposal}.
 
 \end{itemize}
 
@@ -424,7 +425,7 @@ Every thing mentioned in one or more datasets of the university shall be identif
 In order to transform demanded datasets of the university into Linked Data and publish it in an open way, a system architecture is required that faces the issues of diverging data sources and data freshness.\enquote{An important architectural pattern used in system development is the multitier architecture. It logically separates the functionality of the system in a number of layers and specifies the communication between those layers.}\cite{simperl_using_2013}. The proposed architecture (see figure \ref{fig:tac-high-level-architecture}) is composed of four tiers. The first tier represents the diverging forms of \textbf{\textit{data sources}} that can occur in an information environment at a university (see \ref{technical-architecture-challenges:proposal:data-source}). The second tier shows the \textbf{\textit{integration}} of such data sources into a central data storage for linked data also called triple store (see \ref{technical-architecture-challenges:proposal:integration}). The third tier shows the \textbf{\textit{provision}} of the stored linked data (see \ref{technical-architecture-challenges:proposal:provision}) so that developers can implement \textbf{\textit{applications}} based on it represented in the fourth tier.  
 
 \begin{figure}[t]
-\centering \includegraphics*[width=1.0\columnwidth]{images/technical-architecture/lod_technical_architecture.png}
+\centering \includegraphics*[width=0.9\columnwidth]{images/technical-architecture/lod_technical_architecture.png}
 \caption{High level architecture for providing Linked Open Data (adapted from EUCLID {\cite{simperl_using_2013}})}
 \label{fig:tac-high-level-architecture}
 \end{figure}
@@ -432,7 +433,8 @@ In order to transform demanded datasets of the university into Linked Data and p
 \subsubsection{Data sources}
 \label{technical-architecture-challenges:proposal:data-source}
 As mentioned earlier, the information environment of a university may consist of multiple independent services that evolved over time powered by data sources that do not met the principles of Linked Data like relational databases. In order to encourage data owners to publish their data as Linked Open Data, Berners-Lee developed the following star rating system: \cite{berners-lee_linked_2006}\\
-\begin{tabular}{p{0.12\columnwidth}  p{0.78\columnwidth}}
+\begin{center}
+\begin{tabular}{p{2cm}  p{10cm}}
 		$\bigstar$ & Available on the web (whatever format) but with an open licence, to be Open Data. \\
 		\hline
 		$\bigstar\bigstar$ & Available as machine-readable structured data (e.g. excel instead of image scan of a table)\\
@@ -442,7 +444,8 @@ As mentioned earlier, the information environment of a university may consist of
 		$\bigstar\bigstar\bigstar\bigstar$ & All the above plus, Use open standards from W3C (RDF and SPARQL) to identify things, so that people can point at your stuff\\
 		\hline
 		$\bigstar\bigstar\bigstar\bigstar\bigstar$ & All the above, plus: Link your data to other people’s data to provide context\\
-\end{tabular}\\\\
+\end{tabular}
+\end{center}
 Nevertheless, there are techniques to integrate these diverging data sources into a five-star Linked Data environment without reconstructing legacy services and work-flows, which is described in the \textbf{\textit{integration}} tier. In this section, the different forms of data sources that may occur in the information environment of a university are listed. 
 
 \paragraph{Not machine-readable:} Not machine-processable sources of knowledge like the expertise of a human (e.g. which rooms are in which way accessible) or not machine-readable data (e.g. images, PDF files) have to be transformed by a human into data formats that can be processed and interpreted by computers in order to be managed by the proposed technical architecture. Non machine-readable data like images or PDF files have a rating of one-star ($\bigstar$), if they are exposed on a public accessible web page. It is then considered as Open Data.
@@ -522,7 +525,7 @@ The \textit{\textbf{data source tier}} represents diverging data sources, which 
 
 Furthermore, different Linked Data sources often use different vocabularies to represent data about the same type of entity.\cite{berners-lee_fractal_2008} In this case a vocabulary mapping may also be necessary in order to give the \textit{\textbf{applications}} a integrated view of the stored linked data. 
 
-\paragraph{Interlinking} is the third step of the integration process. As mentioned earlier, a Linked Data principle is the interlinking with other linked data to give context. Interlinking entities of the local triple store with matching entities of other datasets enriches the knowledge about these entities by giving the end user the ability to explore. \texttt{Silk} \footnote{\url{http://silkframework.org/}} is a Java framework that supports interlinking of datasets providing an own specification language (SILK-LSL). It can handle different data sources like SPARQL endpoints and RDF dumps to interlink with. With \texttt{Silk}`s workbench the linking can be configured graphically.
+\paragraph{Interlinking} is the third step of the integration process. As mentioned earlier, a Linked Data principle is the interlinking with other linked data to give context. Interlinking entities of the local triple store with matching entities of other datasets enriches the knowledge about these entities by giving the end user the ability to explore. \texttt{Silk} \footnote{\url{http://silkframework.org/}} is a Java framework that supports the interlinking of datasets providing an own specification language (SILK-LSL). It can handle different data sources like SPARQL endpoints and RDF dumps to interlink with. With \texttt{Silk}`s workbench the linking can be configured graphically.
 
 \paragraph{Cleansing} is the fourth step of the integration process. In this step the data that has been transformed and maybe interlinked with other datasets in the previous steps is cleaned up before it is stored (e.g. removal of ambiguities).
 
@@ -560,33 +563,28 @@ Vocabularies model concepts of a knowledge domain and the relationships between 
 	
 	\item[Resource List Ontology]\footnote{\url{http://vocab.org/resourcelist/schema}} is a schema that aims to describe collections of resources, which usually refer to bibo:Documents (bibo \dots{Bibliography Ontology\footnote{\url{http://bibliontology.com/bibo/}}}). This is as the previous one a suitable schema for the \textit{Resource List Management Tool} use case proposed in section \ref{lod-benefits-challenges:explored-needs-usecases:rlm}. It is actually used by Talis Aspire (an resource list management service) in combination with \texttt{Aiiso}.
 	
-	\item[Academic Institution Internal Structure Ontology] (Aiiso) is a schema that aims to describe the internal organizational structure of an academic institution, but does not offer a comprehensive set of properties to describe courses in comparison to \texttt{Bowlogna Ontology} and \texttt{MLO}.
+	\item[Academic Institution Internal Structure Ontology] (AIISO) is a schema that aims to describe the internal organizational structure of an academic institution, but does not offer a comprehensive set of properties to describe courses in comparison to \texttt{Bowlogna Ontology} and \texttt{MLO}. \texttt{AIISO-Roles}\footnote{\url{http://vocab.org/aiiso-roles/schema}}, \texttt{FOAF}\footnote{\url{http://xmlns.com/foaf/spec/}} (\dots{schema aimed to describe people and their social networks}) and \texttt{Participation}\footnote{\url{http://vocab.org/participation/schema}}(\dots{schema aimed to describe the role of people within groups}) can be used in partnership with \texttt{AIISO} to describe the role of people within an academic institution.
 \end{description}
 
 The \textit{Linked Open Vocabularies} repository\footnote{\url{http://lov.okfn.org/dataset/lov/}} of the \textit{Open Knowledge Foundation} manages a number of vocabularies and can be used to find popular vocabularies that model required concepts and terms.
 
 \subsection{Challenges}
 \label{technical-architecture-challenges:challenges}
+In the previous sections a system architecture to expose demanded public resources of a university were discussed as well as use cases based on such Linked Open Data. This section discusses briefly the most important issues that system designer and project manager has to deal with when starting a Linked Open Data effort at a university. At a university the data quality issue might not be too relevant, because the data is integrated from a set of know sources. \enquote{In cases where the system integrate data from the open Web, data quality assessment becomes crucial}\cite{heath_linked_2011}. However, in the following the issue of data freshness among others is raised.
 
-The technical challenges. 
-
-\paragraph{Data freshness}
-\label{technical-architecture-challenges:challenges:data-freshness}
-
-\paragraph{Data ownership}
+\paragraph{Data ownership:}
 \label{technical-architecture-challenges:challenges:data-ownership}
+As mentioned earlier, larger universities tend to spread their services across several departments to serve their stakeholders and satisfy their specific requirements. Furthermore, due to the complexity of the domain of a university, there may be multiple services that handle a particular part of the domain. It is likely for such an environment to result in independent services with diverging data owners. In order to establish a university-wide linked data space for demanded public resources the data owner has to be explored. The data owner is the person or organization who manages the data and therefore has the right to grant access to it or to expose it. On the one hand the exploration of the data owner is important to clarify the legal situation and to get expertise about the data source. On the other hand it is important to have an agreement with the data owner for a certain amount of time in advance to guarantee that effort taken by application developers and the system designers was not useless. A trustful agreement with the data owner may be an  additional incentive for teams to develop applications based on data of this data owner.
 
-...
-
-\paragraph{License} (of content that has been publicly exposed, sharing possible?)
+\paragraph{Data licenses}
 \label{technical-architecture-challenges:challenges:license}
+This topic is connected to the previous one and addresses the issue of legal concerns regarding the reuse of data. A common assumption is that data and content published on the Web can be reused at will, but a missing license statement does not automatically grant the data consumer the right to reuse the data. This is important to know, if the system employed at the university shall integrate machine-readable data from public web sites of the university into it`s triple store; as mentioned in section \ref{technical-architecture-challenges:proposal:integration}, a crawler could extract RDFa and microdata from web pages. For this reason it is advisable to contact the owner of the web site, where the license statement is missing, in order to integrate the machine-readable data of it. 
 
-...
+Conversely, if the university employs a system that exposes public resources as Open Data or Linked Open Data on the Web it should include explicit license statements. The absence of such a license statement including the terms under which the exposed data about public resources can be reused by application developers may lead to a situation where developers hesitate to resuse the data as well as limited erffort may be taken to build application based on data whose terms of reuse are unclear. Licenses like Copyright or Creative Commons\footnote{\url{https://creativecommons.org/}} cannot be applied to exposed linked data due to the fact that data is not a creative work and therefore not protectable by these license models; a defensiable legal basis is missing. However, the content of data can be protected by these licenses.\cite{miller_open_2008} Nevertheless, some license models evolved over time to fill this gap; Public Domain Dedication and License\footnote{\url{http://opendatacommons.org/licenses/pddl/}} (PDDL), Attribution License\footnote{\url{http://opendatacommons.org/licenses/by/}} (ODC-By) and Open Database License\footnote{\url{http://opendatacommons.org/licenses/odbl/}} (ODbL) are common.
 
-\paragraph{Comfort zone} of the stakeholders
-\label{technical-architecture-challenges:challenges:comfort-zone}
-
-...
+\paragraph{Data freshness:} 
+\label{technical-architecture-challenges:challenges:data-freshness}
+As described in section \ref{technical-architecture-challenges:proposal:data-source}  diverging sources of data may occur in the information environment of a university. A system exposing demanded datasets from those data sources as Linked Open Data has to deal with the issue of data freshness in dependence of how dynamic the data is. In section \ref{technical-architecture-challenges:proposal:integration} two approaches are discussed; the \textit{crawling pattern}, which acquires data in advance and integrates it into the central triple store, and the \textit{On-The-Fly Dereferencing pattern}, which accesses and transforms the data, when it is requested. The proposed architecture is using the \textit{crawling pattern} and as a result of this the data might not be up-to-date, when it is requested by an application; which is why the integration process must be repeated after some time to keep the data fresh. Therefore the system designer has to find a time interval that satisfies the needs of the application developers regarding data freshness and performance, which may be impacted in case of a high update frequency. Dynamic data sources are for example datasets concerning a collection of events at a particular date, which might change over time, whereas a dataset concerning the geospatial information about facilities  might be more or less static. The system designer does not only has to keep the dynamics of data sources in mind, but also the complexity of the re-integration process (update) for particular data sources. This is an issue, especially for systems that are not aware of the history of the acquired data. Simple RDF dumps are an example, where the system has to explore the changes that has been happened since the last integration of this dump. In case of the \textit{On-The-Fly Dereferencing pattern}, the system designer does not have to face the issue of data freshness, but as a result the performance may be slow, because the data is transformed into Linked Data, when it is requested.
 
 % --------------------------------------------------------------------------------------------
 %  Conclusion
@@ -594,7 +592,37 @@ The technical challenges.
 
 \section{Conclusion}
 \label{conclusion}
-The conclusion goes here.
+
+The idea of Linked Open Data as well as the idea of applying it to the domain of universities (Linked Universities, 2011) is around for a while now and some effort has been taken to develop best practises and use cases for Linked Open Data in the context of universities. This paper was aimed to explore this best practises and to discover benefits, challenges and use cases from the point of a student. In more detail, the goals of this paper has been broke down into the following four research questions. 
+
+\begin{itemize}
+	\item \textit{RQ1: What are best practices regarding the applicability of Linked Open Data in university settings?}
+	\item \textit{RQ2: What are the major benefits and challenges for students if certain university resources are published as Linked Open Data and which needful use cases can result out of this from the perspective of the students?}
+	\item \textit{RQ3: What are major challenges for the implementation of a Linked Open Data solution?}
+	\item \textit{RQ4: How would a prototypical implementation of a publication framework based on Linked Open Data look like?}
+\end{itemize}
+
+In the following each research question is addressed.
+
+\paragraph{Research question 1:} A movement of European universities named 'Linked Universities' aims to provide help and knowledge for other universities that wish to expose their public university resources as Linked Data. The Open University, which is one of the forerunner in this regard, gave insights into their ideas and approaches regarding Linked Data at universities with the LUCERO project. Together with other active universities like the University of Southampton and University of Münster applications based on public university resources that has been exposed as Linked Data were developed and represent a show case for possible usages of Linked Data at universities. Resource List Management and Map applications become part of the case study that was conducted to answer the next two research questions. Some years later, the LinkedUp project emerged, which is funded by the European Commission aimed at pushing forward the exploitation and adoption of Linked Open Data in educational organizations and institutions. 
+
+The conclusion is that using Linked Open Data is a promising way of enhancing and harmonizing processes at universities. In particular, these achievements have let to several contributions. One major contribution was the creation of ontologies (e.g. TEACH) and tools (e.g. Triplify) applicable in general university settings. 
+Hence, a general guideline should be using already existing ontologies and tools instead of creating new ones which cover similar concepts and domains.
+
+\paragraph{Research question 2:} In order to answer this research question a case study was conducted with \textit{five} participants to explore new beneficial use cases and to evaluate known ones from the point of students. The willingness of the students to develop applications based on Linked Open Data exposed by the university was also evaluated.
+
+The first known use case from other universities that was proposed to the students was a map application of the campus, which resulted in a positive response of the students. They had like to use such an application and all  of them expressed the demand for finding free rooms for particular tasks; one one side to find free lecture rooms for learning and other side to find free rooms for tutors to mentor their students. But not only students had like to use such an application, also administration staff responeded positively \cite{gamerith_linked_2016}. The Vienna University of Technology exposes information about the facilities and the schedule of rooms on the Web, but not in a machine-readable way. However, with some effort this information can also be served in a machine-readable format and may lead to the development of such a highly demanded map application.
+
+The second known use case from other universities that was proposed to the students was a resource list management application, which resulted in mixed responses. Some has been sceptical about this use case, because the additional administrative burden for course teams like keeping the list up-to-date may diminish the willingness of using such an application; whereas others responded positively. In order to make this use case possible, the course information has to be published in machine-readable format and the course teams have to be convinced to use such an application to share lists of learning resources. It would also be beneficial, if the academic library would provide meta-data about the accessible literature as Linked Open Data.
+
+In general, the students has been unsatisfied with the way how organizational information is shared with them. Which is why the proposed use cases of the students were concerned with this issue. A proposed use case was a course calendar that manages all course events not only lecture times as well as an event calendar that give the user an overview of all planned events of university organizations. Furthermore, a use case that provides course information from different sources including VOWI (wiki employed by students) and internet forums was proposed.
+
+Final, the willingness of the students to develop own applications based on Linked Data exposed by the university was evaluated. Overall, the interviewees were more or less cautious regarding this question, but most of them were willed to. One student mentioned that (s)he is willed to if the university provide some incentives. This incentive may not only be aid for innovative applications, but also to allow students to build applications based on university Linked Open Data as practical project in courses, where the have to be carried out. Due to the fact that informatics is one of the science fields taught by the TU Vienna, there are some course where this approach can applied; Advanced Software Engineering, Introduction to Semantic Web, SAIKS and SENIC projects. The students showed that they are not completely satisfied with the information environment of the university and have also some ideas to change this.
+
+\paragraph{Research question 3:} One major issue for implementing a system that exposes public resources of the university as Linked Open Data is \textbf{\textit{data ownership}}. There may be diverging data owners, because there might be independent services at the university that handle a particular part of the domain. At larger universities they may also spread their services across several departments. Consequently, to expose a public resource of a university as Linked Open Data the data owners may have to be explored. A further minor challenge are \textbf{\textit{data licenses}}. In order to integrate machine-readable data from public web sites of the university it is advisable to also contact the owner if the license statement is missing. Conversely, the university has to include license agreements for each exposed linked data. A major challenge is \textbf{\textit{data freshness}}, especially for the pattern used by the proposed architecture of this paper. The system designer has to choose the update intervals thoughtfully to satisfy the needs of the application developer regarding performance and data freshness. \textit{\textbf{Data quality}} assessments should be kept in mind, if data exposed on the Web is integrated into the system.
+
+\paragraph{Research question 4:} The evolvement of a Linked Open Data effort at a university depends on the current information environment at the university and the demand of stakeholders like students for applications based on Linked Open Data. This results in a demand for exposing public university resources that are required by such applications as Linked Open Data. The technical architecture proposed in section \ref{technical-architecture-challenges:proposal} focuses on this part of the publication framework. The information environments may consist of diverging data source with different formats and data owners. The technical architecture has to face this diverging data sources and has to provide an interface to integrate them. The proposed system uses a \textit{crawling pattern}, so the data is acquired and integrated into a central triple store in advance. An alternative approach is the \textit{On-The-Fly-Referencing pattern}, where the data is accessed and transformed, when the data is requested; this can lead to scalability issues.\cite{heath_linked_2011} There are different ways to grant the end user access to the data stored in the triple store. The most convenient way for both the human reader and the application might be a Content Management System enriched with RDFa like described in section \ref{technical-architecture-challenges:proposal:provision} in combination with a SPARQL endpoint like on DBPedia. A disadvantage is the higher cost of development in comparison to a simple SPARQL endpoint; most common triple stores come with a SPARQL endpoint. 
+
 
 % --------------------------------------------------------------------------------------------
 %  Acknowledgment

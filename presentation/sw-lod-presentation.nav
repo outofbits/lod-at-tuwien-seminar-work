@@ -8,8 +8,37 @@
 \headcommand {\beamer@subsectionpages {1}{2}}
 \headcommand {\slideentry {1}{0}{3}{3/3}{}{0}}
 \headcommand {\beamer@framepages {3}{3}}
-\headcommand {\beamer@partpages {1}{3}}
-\headcommand {\beamer@subsectionpages {1}{3}}
+\headcommand {\sectionentry {2}{Benefits and challenges}{4}{Benefits and challenges of using Linked Open Data at universities}{0}}
 \headcommand {\beamer@sectionpages {1}{3}}
-\headcommand {\beamer@documentpages {3}}
-\headcommand {\def \inserttotalframenumber {3}}
+\headcommand {\beamer@subsectionpages {1}{3}}
+\headcommand {\slideentry {2}{0}{4}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{5}{Interviewees background}}\headcommand {\beamer@subsectionpages {1}{4}}
+\headcommand {\slideentry {2}{1}{0}{5/5}{}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\sectionentry {3}{Technical architecture and challenges}{6}{Technical architecture and challenges}{0}}
+\headcommand {\beamer@sectionpages {1}{5}}
+\headcommand {\beamer@subsectionpages {1}{5}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{6}{Linked Open Data effort at universities}}\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\slideentry {3}{1}{0}{6/6}{}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{7}{Proposal of technical architecture}}\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\slideentry {3}{2}{0}{7/7}{}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{8}{Challenges}}\headcommand {\beamer@subsectionpages {6}{7}}
+\headcommand {\slideentry {3}{3}{1}{8/8}{Challenges}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{3}{1}{9}{Data ownership}}
+\headcommand {\slideentry {3}{3}{2}{9/9}{Challenges}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{3}{2}{10}{Data licenses}}
+\headcommand {\slideentry {3}{3}{3}{10/10}{Challenges}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{3}{3}{11}{Data freshness}}
+\headcommand {\slideentry {3}{3}{4}{11/11}{Challenges}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@partpages {1}{11}}
+\headcommand {\beamer@subsectionpages {8}{11}}
+\headcommand {\beamer@sectionpages {6}{11}}
+\headcommand {\beamer@documentpages {11}}
+\headcommand {\def \inserttotalframenumber {11}}
